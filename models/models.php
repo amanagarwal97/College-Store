@@ -1,19 +1,9 @@
 <?php
     
-    $con = mysqli_connect('localhost', 'ic_01', '3vXt73bGW7mEcGnI');
-    
-    //check for errors
-    if (mysqli_connect_errno())
-    {
-        echo 'Failed to connect to database : ' . mysqli_connect_error();
-    }
-    if (mysqli_query($con,'USE Project_2'))
-    {
-        echo 'Unable to connect to database';
-    }
     
     function login_query($values)
     {
+        require('connect.php');
         extract($values);
         $query = 'SELECT * FROM users WHERE email=' . $email;
         $result=mysqli_query($con,$query);
@@ -33,6 +23,23 @@
             {
                 return false;
             }
+        }
+    }
+    
+    function register_query($values)
+    {
+        require('connect.php');
+        extract($values);
+        $query = 'INSERT INTO users(name,email,password,college,gender) VALUES';
+        $password_hash = password_hash($password,PASSWORD_DEFAULT);
+        $query = $query . '("' . $fname . '","' . $email . '","' . $password_hash . '",' . $cid . ',"' . $gender . '")';
+        if (mysqli_query($con,$query))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 ?>

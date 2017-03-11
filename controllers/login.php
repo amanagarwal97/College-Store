@@ -2,7 +2,7 @@
     
     //configuration
     require('config.php');
-    require('models.php');
+    require_once('../models/models.php');
     
     if ($_SERVER["REQUEST_METHOD"] == 'GET')
     {
@@ -27,7 +27,7 @@
                 ];
             if(login_query($details))
             {
-                redirect ('/');
+                redirect ('index.php');
             }
             else
             {

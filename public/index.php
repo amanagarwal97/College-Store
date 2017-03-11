@@ -1,6 +1,7 @@
 <?php   
     
     //configuration
-    require('../controller/config.php');
+    require('../controllers/config.php');
     
+    render('first_view.php',["title" => "MyCollegeStore"]);
 ?>
