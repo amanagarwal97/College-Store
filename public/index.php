@@ -3,5 +3,5 @@
     //configuration
     require('../controllers/config.php');
     
-    render('first_view.php',["title" => "MyCollegeStore"]);
+    render('store.php',["title" => "MyCollegeStore"]);
 ?>
