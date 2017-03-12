@@ -7,7 +7,6 @@ USE `Project_2`;
 
 -- -----------------------------------------
 
---
 -- Table structure for table `colleges`
 --
 
@@ -55,6 +54,19 @@ CREATE TABLE IF NOT EXISTS `items`(
     `image` varchar(255),
     PRIMARY KEY (`id`),
     FOREIGN KEY (`uid`) REFERENCES users(`id`)
+)ENGINE = InnoDB ;
+
+-- ----------------------------------------
+
+--
+-- Table structure for table `colleges`
+--
+
+CREATE TABLE IF NOT EXISTS `colleges` (
+    `cid` int(10) NOT NULL AUTO_INCREMENT,
+    `cname` varchar(255) NOT NULL,
+    PRIMARY KEY (`cid`),
+    UNIQUE KEY (`cname`)
 )ENGINE = InnoDB ;
 
 -- ----------------------------------------

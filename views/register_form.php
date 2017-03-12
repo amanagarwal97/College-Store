@@ -16,3 +16,4 @@
     <input type="radio" name="gender" value="0">M<input type="radio" name="sex" value="1">F<br>
 <button type="submit" name="submit">Register</button>   
 </form>
+
