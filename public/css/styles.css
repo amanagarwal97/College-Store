@@ -1,0 +1,66 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0px;
+}
+
+nav {
+	width: 100%;
+	background-color: lightgrey;
+	height: 45px;
+	position: relative;
+}
+
+a:link, a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:active {
+	color: red;
+}
+
+.store, .post, .account {
+	font-family: 'Roboto', sans-serif;
+	position: absolute;
+	top: 10px;
+	font-size: 20px;
+}
+
+.store {
+	color: black;
+	left: 30px;
+}
+
+.post {
+	color: purple;
+	right: 100px;
+}
+
+.account {
+	color: purple;
+	right: 10px;
+}
+
+.category {
+	margin-top: 50px;
+	margin-left: 50px;
+	margin-right: 50px;
+	background-color: #eeeeee;
+}
+
+ul.category > li {
+	padding: 10px;
+	padding-right: 15px;
+	display: inline-block;
+	font-size: 25px;
+}
+
+ul.category > li > a {
+	color: black;
+}
