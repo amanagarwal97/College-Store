@@ -1,5 +1,4 @@
-<div class="middle">
-	<form action="login.php" method="post" class="signup-form">
+    <form action="login.php" method="post" class="signin-form">
 		<h1>Sign In</h1>
 		<label for="email">Email</label>
 		<input autocomplete="off" autofocus type="Email" name="email" placeholder="foo@bar.com" required>

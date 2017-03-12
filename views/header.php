@@ -26,3 +26,4 @@
                     echo '<a href="logout.php" class="account">Sign Out</a>';
             ?>
 	    </nav>
+	    <div class="middle">
