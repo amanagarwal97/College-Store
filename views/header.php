@@ -17,7 +17,7 @@
     </head>
     <body>
         <nav>
-		    <a href="" class="store">MyCollegeStore</a>
+		    <a href="index.php" class="store">MyCollegeStore</a>
 		    <a href="postad.php" class="post">Submit your Product</a>
 		    <?php 
 		        if(empty($_SESSION["id"]))
@@ -25,17 +25,5 @@
                 else
                     echo '<a href="logout.php" class="account">Sign Out</a>';
             ?>
-		    <
 	    </nav>
-        <div class="top">
-        <ul class="category">
-    		<li><a href="">ALL</a></li>
-    		<li><a href="">BOOKS</a></li>
-    		<li><a href="">CLOTHING</a></li>
-    		<li><a href="">ELECTRONICS</a></li>
-    		<li><a href="">FURNITURE</a></li>
-    		<li><a href="">SPORTS</a></li>
-    		<li><a href="">VEHICLES</a></li>
-    		<li><a href="">OTHERS</a></li>
-	    </ul>
-        <div class="mid">
+	    <div class="middle">
