@@ -6,9 +6,9 @@
             <option value='0' selected disabled>Select College</option>
             <option value=0>All</option>
             <?php
-                for ($i=1 ; $i<=sizeof($colleges) ; $i++)
+                for ($i=0 ; $i<sizeof($colleges) ; $i++)
                 {
-                    echo '<option value=' .$i. '>' .$colleges[$i-1]. '</option>' ;
+                    echo '<option value=' .$colleges[$i]["cid"]. '>' .$colleges[$i]["cname"]. '</option>' ;
                 }
             ?>
         </select>

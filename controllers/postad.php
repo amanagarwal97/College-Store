@@ -6,7 +6,8 @@
     
     if ($_SERVER["REQUEST_METHOD"] == 'GET')
     {
-        render('postad_form.php' , ["title" => "PostAd"]);
+        $categories = category_list();
+        render('postad_form.php' , ["title" => "PostAd" , "categories" => $categories]);
     }
     
     if ($_SERVER["REQUEST_METHOD"] == 'POST')
@@ -21,20 +22,25 @@
             echo "Please enter a valid price";
         
         $img_path = '';
-        if (!empty($_FILES["image"]))
+        if (file_exists($_FILES["image"]["tmp_name"]) || is_uploaded($_FILES["image"]["tmp_name"]))
         {
             $file_name = basename($_FILES["image"]["name"]);
             $ext = pathinfo($file_name,PATHINFO_EXTENSION);
-            if(check_file())
+            if(check_file($file_name,$ext))
             {
+                $img_path = 'img/' .$_SESSION["cid"];
                 //Upload the file
-                do 
+                if (!file_exists($img_path))
                 {
-                    $img_path = "/img/" .$_SESSION["cid"]. "/" .img_name(). $ext;
+                    mkdir ($img_path);
+                }
+                do 
+                {   
+                    $img_path .= "/" .img_name(). '.' .$ext;
                 
                 }while(file_exists($img_path));
                   
-                if (move_uploaded_files($_FILES["image"]["tmp_name"],$img_path))
+                if (move_uploaded_file($_FILES["image"]["tmp_name"],$img_path))
                     echo "Image uploaded successfully";
             }
         }
@@ -61,7 +67,7 @@
             "image" => $img_path
           ];
         
-        if (postad_query($details))
+        if (@postad_query($details))
         {
             echo "Ad Posted Successfully";
         }

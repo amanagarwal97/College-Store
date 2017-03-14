@@ -1,13 +1,13 @@
 <form action="postad.php" method="post" enctype="multipart/form-data">
     <select name="category">
     <option value="0" selected disabled>Select Category</option>
-    <option value="1">Books</option>
-    <option value="2">Clothing</option>
-    <option value="3">Electronics</option>
-    <option value="4">Furniture</option>
-    <option value="5">Sports</option>
-    <option value="6">Vehicle</option>
-    <option value="7">Others</option>
+    <?php
+          
+          for ($i=0 ; $i<sizeof($categories) ; $i++)
+          {
+                echo '<option value=' .$categories[$i]["id"]. '>' .$categories[$i]["name"]. '</option>' ;
+          }
+    ?>
     </select><br>
     <input type="text" name="title" placeholder="Item Title (Min. length 4 char)"><br>
     <textarea type="text" name="desc" placeholder="Item description (Max. length 200 char)"></textarea><br>

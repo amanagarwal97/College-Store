@@ -59,11 +59,9 @@
         exit;
     }
     
-    function check_file()
+    function check_file($_file_name,$imagetype)
     {
-        $file_name = basename($_FILES["image"]["name"]);
         $uploaded = true;
-        $imagetype = pathinfo($file_name,PATHINFO_EXTENSION);
         
         // Check if image file is a actual image or fake image
         if(isset($_POST["submit"])) 
