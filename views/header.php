@@ -18,7 +18,7 @@
     <body>
         <nav>
 		    <a href="" class="store">MyCollegeStore</a>
-		    <a href="" class="post">Submit your Product</a>
+		    <a href="postad.php" class="post">Submit your Product</a>
 		    <?php 
 		        if(empty($_SESSION["id"]))
                     echo '<a href="login.php" class="account">Sign In</a>';

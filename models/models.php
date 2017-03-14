@@ -5,7 +5,7 @@
     {
         require('connect.php');
         extract($values);
-        $query = 'SELECT * FROM users WHERE email=' . $email;
+        $query = 'SELECT * FROM users WHERE email="' .$email. '"';
         $result=mysqli_query($con,$query);
         if (empty($result))
         {
@@ -17,6 +17,7 @@
             if (password_verify($password,$row["password"]))
             {   
                 $_SESSION["id"] = $row["id"];
+                $_SESSION["cid"] = $ow["college"];
                 return true;
             }
             else
@@ -43,12 +44,12 @@
         }
     }
     
-    function sell_item($values)
+    function postad_query($values)
     {
         require('connect.php');
         extract($values);
         $query = 'INSERT INTO items(uid,category,title,description,contact,itype,price,date,image) 
-                  VALUES(' .$_SESSION["id"]. ',"' .$category. '","' .$title. '","' .$desc. '","' .$contact. '","' .$type. '",' .$price. ',' .CURRENT_TIMESTAMP. ',"' .$image. '")';
+                  VALUES(' .$_SESSION["id"]. ',"' .$category. '","' .$title. '","' .$desc. '","' .$contact. '","' .$choice. '",' .$price. ',' .CURRENT_TIMESTAMP. ',"' .$image. '")';
         if (mysqli_query($con,$query))
         {
             return true;
@@ -73,4 +74,5 @@
             return $college_data;
         }
     }
+
 ?>

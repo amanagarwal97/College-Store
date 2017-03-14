@@ -17,9 +17,9 @@
             echo 'Invalid Email address';
         else if ($_POST["cid"] == 0)
             echo 'No college selected';
-        else if (empty($_POST["gender"]))
+        else if (!isset($_POST["gender"]))
             echo "No gender selected" ;
-        else if ($_POST["pwd"] != $_POST["rwd"])
+        else if ($_POST["pwd"] != $_POST["rpwd"])
             echo "passwords do not match";
         else
         {   

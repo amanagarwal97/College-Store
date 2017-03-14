@@ -58,5 +58,56 @@
         header("Location: {$location}");
         exit;
     }
+    
+    function check_file()
+    {
+        $file_name = basename($_FILES["image"]["name"]);
+        $uploaded = true;
+        $imagetype = pathinfo($file_name,PATHINFO_EXTENSION);
+        
+        // Check if image file is a actual image or fake image
+        if(isset($_POST["submit"])) 
+        {
+            $check = getimagesize($_FILES["image"]["tmp_name"]);
+            if($check !== false) 
+            {
+                $uploaded = true;
+            } 
+            else 
+            {
+                $uploaded = false;
+            }
+        }
+
+        // Check file size
+        if ($_FILES["image"]["size"] > 30000000) 
+        {
+            echo "Sorry, your file is too large.";
+            $uploaded = false;
+        }
+
+        // Allow certain file formats
+        if($imagetype != "jpg" && $imagetype != "png" && $imagetype != "jpeg") 
+        {
+            echo "Sorry, only JPG, JPEG, PNG files are allowed.";
+            $uploaded = false;
+        }
+        
+        return $uploaded;
+
+    }
+    
+    function img_name() 
+    {
+        $length = 6;
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++)
+        {
+            $randomString .= $characters[rand(0, strlen($characters) - 1)];
+        }
+
+        return $randomString;
+}
 
 ?>

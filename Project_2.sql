@@ -7,6 +7,7 @@ USE `Project_2`;
 
 -- -----------------------------------------
 
+--
 -- Table structure for table `colleges`
 --
 
@@ -38,13 +39,26 @@ CREATE TABLE IF NOT EXISTS `users`(
 -- ----------------------------------------
 
 --
+-- Table structure for table `categories`
+--
+
+CREATE TABLE IF NOT EXISTS `categories` (
+    `id` int(10) NOT NULL AUTO_INCREMENT,
+    `type` varchar(255) NOT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY (`type`)
+)ENGINE = InnoDB ;
+
+-- ----------------------------------------
+
+--
 -- Table structure for table `items`
 --
 
 CREATE TABLE IF NOT EXISTS `items`(
     `id` int(100) NOT NULL AUTO_INCREMENT,
     `uid` int(10) NOT NULL,
-    `category` varchar(55) NOT NULL,
+    `category` int(10) NOT NULL,
     `title` varchar(255) NOT NULL,
     `description` varchar(200) NOT NULL,
     `contact` varchar(100) NOT NULL,
@@ -53,20 +67,8 @@ CREATE TABLE IF NOT EXISTS `items`(
     `date` datetime NOT NULL,
     `image` varchar(255),
     PRIMARY KEY (`id`),
-    FOREIGN KEY (`uid`) REFERENCES users(`id`)
-)ENGINE = InnoDB ;
-
--- ----------------------------------------
-
---
--- Table structure for table `colleges`
---
-
-CREATE TABLE IF NOT EXISTS `colleges` (
-    `cid` int(10) NOT NULL AUTO_INCREMENT,
-    `cname` varchar(255) NOT NULL,
-    PRIMARY KEY (`cid`),
-    UNIQUE KEY (`cname`)
+    FOREIGN KEY (`uid`) REFERENCES users(`id`),
+    FOREIGN KEY (`category`) REFERENCES categories(`id`)
 )ENGINE = InnoDB ;
 
 -- ----------------------------------------
@@ -80,3 +82,19 @@ INSERT INTO colleges(`cname`) VALUES ('National Institute of Technology,Agartala
 INSERT INTO colleges(`cname`) VALUES ('National Institute of Technology,Calicut');
 INSERT INTO colleges(`cname`) VALUES ('National Institute of Technology,Durgapur');
 INSERT INTO colleges(`cname`) VALUES ('National Institute of Technology,Delhi');
+
+-- ----------------------------------------
+
+--
+-- Dumping Data for table `categories`
+--
+
+INSERT INTO categories(`name`) VALUES ('Books');
+INSERT INTO categories(`name`) VALUES ('Clothing');
+INSERT INTO categories(`name`) VALUES ('Electronics');
+INSERT INTO categories(`name`) VALUES ('Furniture');
+INSERT INTO categories(`name`) VALUES ('Sports');
+INSERT INTO categories(`name`) VALUES ('Vehicles');
+INSERT INTO categories(`name`) VALUES ('Others');
+
+-- ---------------------------------------
