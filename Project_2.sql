@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `items`(
     `title` varchar(255) NOT NULL,
     `description` varchar(200) NOT NULL,
     `contact` varchar(100) NOT NULL,
-    `itype` char(1) NOT NULL,
+    `itype` int(1) NOT NULL,
     `price` int(10) NOT NULL,
     `date` datetime NOT NULL,
     `image` varchar(255),

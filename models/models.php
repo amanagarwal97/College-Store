@@ -18,6 +18,7 @@
             {   
                 $_SESSION["id"] = $row["id"];
                 $_SESSION["cid"] = $row["college"];
+                $_SESSION["name"] = $row["fname"];
                 return true;
             }
             else
@@ -49,13 +50,13 @@
         require('connect.php');
         extract($values);
         $query = 'INSERT INTO items(uid,category,title,description,contact,itype,price,date,image) 
-                  VALUES(' .$_SESSION["id"]. ',"' .$category. '","' .$title. '","' .$desc. '","' .$contact. '","' .$choice. '",' .$price. ',' .getdate(). ',"' .$image. '")';
+                  VALUES(' .$_SESSION["id"]. ',' .$category. ',"' .$title. '","' .$desc. '","' .$contact. '",' .$choice. ',' .$price. ',' .CURRENT_TIMESTAMP. ',"' .$image. '")';
         if (mysqli_query($con,$query))
         {
             return true;
         }
         else
-        {
+        {   
             return false;
         }
     }
@@ -93,6 +94,36 @@
                 ];
             }
             return $category_data;
+        }
+    }
+    
+    function item_list($item_id)
+    {
+        require('connect.php');
+        $query = 'SELECT * FROM items';
+    }
+    
+    function user_item_list()
+    {
+        require('connect.php');
+        $query = 'SELECT * FROM items WHERE uid=' . $_SESSION["id"];
+        if ($rows = mysqli_query($con,$query))
+        {
+            $i = 0;
+            while ($row = mysqli_fetch_assoc($rows))
+            {
+                $item_data[$i++] = [
+                    "image" => $row["image"],
+                    "title" => $row["title"],
+                    "desc" => $row["description"],
+                    "date" => $row["date"],
+                    "type" => $row["itype"],
+                    "price" => $row["price"]
+                ];
+                
+             }
+             
+             return $item_data;
         }
     }
 

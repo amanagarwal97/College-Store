@@ -22,7 +22,7 @@
             echo "Please enter a valid price";
         
         $img_path = '';
-        if (file_exists($_FILES["image"]["tmp_name"]) || is_uploaded($_FILES["image"]["tmp_name"]))
+        if (file_exists($_FILES["image"]["tmp_name"]) || is_uploaded_file($_FILES["image"]["tmp_name"]))
         {
             $file_name = basename($_FILES["image"]["name"]);
             $ext = pathinfo($file_name,PATHINFO_EXTENSION);
@@ -57,6 +57,7 @@
         {
             $price = $_POST["price"];
         }
+        
         $details = [
             "title" => $_POST["title"],
             "category" => $_POST["category"],
