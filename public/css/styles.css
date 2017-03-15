@@ -26,7 +26,7 @@ a:active {
 	color: red;
 }
 
-.store, .post, .account {
+.store, .post, .account, .dashboard {
 	font-family: 'Roboto', sans-serif;
 	position: absolute;
 	top: 10px;
@@ -46,6 +46,11 @@ a:active {
 .account {
 	color: white;
 	right: 10px;
+}
+
+.dashboard {
+	color: white;
+	left: 185px;
 }
 
 .category {
@@ -79,20 +84,20 @@ h1 {
 	font-family: 'Roboto', sans-serif;
 }
 
-.signin-form label, .signin-form input, .signup-form input, .signup-form select {
+.signin-form label, .signin-form input, .signup-form input, .signup-form select, .postad-form select, .postad-form input, .postad-form textarea, .postad-form label {
 	display: block;
 	margin-bottom: 20px;
 	font-family: 'Roboto', sans-serif;
 }
 
-.signin-form input, .signin-form button, .signup-form input, .signup-form select, .signup-form button {
+.signin-form input, .signin-form button, .signup-form input, .signup-form select, .signup-form button, .postad-form select, .postad-form input, .postad-form textarea, .postad-form button {
 	width: 320px;
 	height: 55px;
 	border: 2px grey solid;
 	padding: 15px 15px;
 }
 
-input.sex {
+input.sex, input.sell {
 	display: inline-block;
 	width: 25px;
 	height: 20px;
@@ -103,7 +108,7 @@ span {
 	font-size: 30px;
 }
 
-.signin-form button, .signup-form button {
+.signin-form button, .signup-form button, .postad-form button {
 	font-size: 20px;
 	background-color: grey;
 	color: white;

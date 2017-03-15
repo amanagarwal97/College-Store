@@ -1,3 +1,4 @@
+<div class="middle">
     <form action="register.php" method="post" class="signup-form">
         <h1>Sign Up</h1>
         <input autofocus type="Email" name="email" placeholder="E-mail Address" required>

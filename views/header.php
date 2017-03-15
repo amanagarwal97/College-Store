@@ -24,9 +24,8 @@
                     echo '<a href="login.php" class="account">Sign In</a>';
                 else
                 {   
-                    echo '<a href="dashboard.php" class="account">Dashboard</a>';
+                    echo '<a href="dashboard.php" class="dashboard">Dashboard</a>';
                     echo '<a href="logout.php" class="account">Sign Out</a>';
                 }
             ?>
 	    </nav>
-	    <div class="middle">
