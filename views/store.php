@@ -9,7 +9,7 @@
                 }
             ?>
         </ul>
-        <form action="store.php" type = "post">
+        <form action="store.php" type = "get">
         <select name="cid">
             <option value='0' selected disabled>Select College</option>
             <option value=0>All</option>
