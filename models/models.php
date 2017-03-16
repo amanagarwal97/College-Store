@@ -97,10 +97,37 @@
         }
     }
     
-    function item_list($item_id)
+    function item_list_query($offset)
     {
         require('connect.php');
-        $query = 'SELECT * FROM items';
+        $query = 'SELECT * FROM items LIMIT 10 OFFSET '. $offset;
+        if ($rows = mysqli_query($con,$query))
+        {
+            $i = 0;
+            while($row = mysqli_fetch_assoc($rows))
+            {
+                
+                $college_query = 'SELECT cname FROM colleges,users WHERE colleges.cid = users.college AND users.id = ' .$row["uid"];
+                $college_rows = mysqli_query($con,$college_query);
+                $college_row = mysqli_fetch_assoc($college_rows);
+                
+                $category_query = 'SELECT name FROM categories,items WHERE categories.id = items.category AND items.id = ' .$row["id"];
+                $category_rows = mysqli_query($con,$category_query);
+                $category_row = mysqli_fetch_assoc($category_rows);
+                
+                $item_list[$i++] = [
+                    "image" => $row["image"],
+                    "title" => $row["title"],
+                    "cname" => $college_row["cname"],
+                    "date" => $row["date"],
+                    "price" => $row["price"],
+                    "category" => $category_row["name"],
+                ]; 
+            }
+            
+            return $item_list;
+        }
+        
     }
     
     function user_item_list()
@@ -126,5 +153,7 @@
              return $item_data;
         }
     }
+    
+    
 
 ?>
