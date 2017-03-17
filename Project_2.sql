@@ -74,18 +74,6 @@ CREATE TABLE IF NOT EXISTS `items`(
 -- ----------------------------------------
 
 --
--- Dumping Data for table `colleges`
---
-
-INSERT INTO colleges VALUES (12,'Motilal Nehru National Institute of Technology,Allahabad');
-INSERT INTO colleges VALUES (25,'National Institute of Technology,Agartala');
-INSERT INTO colleges VALUES (36,'National Institute of Technology,Calicut');
-INSERT INTO colleges VALUES (45,'National Institute of Technology,Durgapur');
-INSERT INTO colleges VALUES (96,'National Institute of Technology,Delhi');
-
--- ----------------------------------------
-
---
 -- Dumping Data for table `categories`
 --
 

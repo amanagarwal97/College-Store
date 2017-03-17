@@ -1,0 +1,26 @@
+#!/usr/bin/env php
+<?php
+    
+    $handle = fopen('../college_list.txt','r');
+    
+    require('../models/connect.php');
+    
+    if($handle===FALSE) {
+        print("error: unable to open file");
+    }
+    else 
+    {
+        while(($data=fgetcsv($handle,0,"\t"))!==FALSE) 
+        {
+            $query = 'INSERT INTO colleges VALUES(' .$data[0]. ',"' .$data[1]. '")' ;
+            //inserting each row to database
+            if(mysqli_query($con,$query))
+            {
+                print ('Row inserted');
+            }
+            
+        }
+        
+        fclose($handle);
+    }
+?>

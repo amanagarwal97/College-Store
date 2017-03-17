@@ -1,0 +1,101 @@
+1	Indian Institute Of Technology, Madras
+2	Indian Institute Of Technology, Bombay
+3	Indian Institute Of Technology, Kharagpur
+4	Indian Institute Of Technology, Delhi
+5	Indian Institute Of Technology, Kanpur
+6	Indian Institute Of Technology, Roorkee
+7	Indian Institute Of Technology, Hyderabad
+8	Indian Institute Of Technology, Gandhinagar
+9	Indian Institute Of Technology, Ropar-Rupnagar
+10	Indian Institute Of Technology, Patna
+11	Indian Institute Of Technology, North Guwahati
+12	National Institute Of Technology, Tiruchirappalli
+13	Vellore Institute Of Technology, Vellore
+14	Indian Institute Of Technology (Banaras Hindu University), Varanasi
+15	Sardar Vallabhbhai National Institute Of Technology, Surat
+16	Indian Institute Of Technology, Indore
+17	Birla Institute Of Technology, Mesra
+18	Visvesvaraya National Institute Of Technology, Nagpur
+19	National Institute Of Technology, Rourkela
+20	Indian Institute Of Technology, Mandi
+21	Indian Institute Of Engineering Science And Technology, Shibpur
+22	College Of Engineering, Pune
+23	National Institute Of Technology, Karnataka-Mangalore
+24	Motilal Nehru National Institute Of Technology, Allahabad
+25	Psg College Of Technology, Coimbatore
+26	Indian Institute Of Technology, Jodhpur
+27	Indian Institute Of Technology, Bhubaneswar
+28	Thapar University, Patiala
+29	National Institute Of Technology, Warangal
+30	Thiagarajar College Of Engineering, Madurai
+31	National Institute Of Technology, Durgapur
+32	Amrita School Of Engineering, Karungapally
+33	Shanmugha Arts Science Technology & Research Academy (Sastra)
+34	Kalinga Institue Of Industrial Technology
+35	M. S. Ramaiah Institute Of Technology, Bangalore
+36	Coimbatore Institute Of Technology, Coimbatore
+37	R.V. College Of Engineering, Bengaluru
+38	National Institute Of Technology, Calicut
+39	Malaviya National Institute Of Technology, Jaipur
+40	Pec University Of Technology-Chandigarh
+41	Manipal Institute Of Technology
+42	Jamia Millia Islamia, New Delhi
+43	Dr. B R Ambedkar National Institute Of Technology, Jalandhar
+44	Indian Institute Of Science Education & Research, Mohali
+45	Karunya Institute Of Technology And Sciences
+46	Institute Of Technology, Nirma University
+47	Kongu Engineering College
+48	sona College Of Technology, Salem
+49	National Institute Of Technology, Kurukshetra
+50	Pondicherry Engineering College
+51	Amrita Viswa Vidyapeetham-Amrita Nagar (Po) ,Ettimadai
+52	National Institute Of Technology, Hamirpur
+53	National Institute Of Technology, Agartala
+54	Kumaraguru College Of Technology, Coimbatore
+55	B.S. Abdur Rahman Institute Of Science And Technology
+56	Cochin University Of Science And Technology-Cochin
+57	Sant Longowal Institute Of Engineering & Technology-Sangrur
+58	National Institute Of Technology, Meghalaya
+59	Itm University - Gwalior
+60	Koneru Lakshmaiah Education Foundation
+61	Jaypee Institute Of Information Technology, Noida
+62	Bharati Vidyapeeth Deemed University College Of Engineering, Pune
+63	Bannari Amman Institute Of Technology, Sathyamangalam
+64	National Institute Of Technology, Raipur
+65	Vishwakarma Institute Of Technology-Pune
+66	National Institute Of Technology, Silchar
+67	Noorul Islam Centre For Higher Education
+68	National Institute Of Technology, Srinagar
+69	University Institute Of Chemical Technology, North Maharashtra University, Jalgaon
+70	National Institute Of Science & Technology-Berhampur
+71	Siddaganga Institute Of Technology-Tumkur
+72	Chaitanya Bharathi Institute Of Technology-Hyderabad
+73	Hindustan Institute Of Technology  And Science (Hits)
+74	Sagi Ramakrishnam Raju Engineering College, Bhimavaram
+75	C.V.Raman College Of Engineering, Bhubaneswar
+76	Kasegaon Education Societys Rajarambapu Institute Of Technology-Islampur
+77	National Institute Of Technology, Goa
+78	Pandit Dwarka Prasad Mishra Indian Institute Of Information Technology, Design And Manufacturing (IIITDM), Jabalpur
+79	National Institute Of Technology, Jamshedpur
+80	Institute Of Engineering & Management, Kolkata
+81	Indian Institute Of Information Technology, Design & Manufacturing (IIITD&M) Kancheepuram, Chennai
+82	Centurion Institute Of Technology
+83	College Of Technology And Engineering, Udaipur
+84	Veermata Jijabai Technological Institute
+85	K. K. Wagh Institute Of Engineering Education & Research,Nashik
+86	Shri Ramdeobaba College Of Engineering And Management, Ramdeo Tekdi, Gittikhadan, Katol Road, Nagpur
+87	National Institute Of Technology, Patna
+88	Vignan's Foundation For Science, Technology And Research
+89	Shri Guru Gobind Singhji Institute Of Engineering And Technology-Nanded
+90	Sri Ramakrishna Engineering College, Coimbatore
+91	Bengal Institute Of Technology
+92	National Institute Of Technology, Delhi
+93	Yeshwantrao Chavan College Of Engineering-Nagpur
+94	Adhiyamaan College Of Engineering (Engineering & Technology)
+95	Maharashtra Academy Of Engineering And Educational Research, Mit College Of Engineering, Pune-Pune
+96	The National Institute Of Engineering, Mysore
+97	Government College Of Engineering, Aurangabad
+98	Anand Institute Of Higher Technology, Chennai
+99	Noida Institute Of Engineering & Technology, Noida
+100	University Institute Of Chemical Engineering And Technology, Chandigarh
+
