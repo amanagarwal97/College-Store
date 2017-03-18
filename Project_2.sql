@@ -58,6 +58,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 CREATE TABLE IF NOT EXISTS `items`(
     `id` int(100) NOT NULL AUTO_INCREMENT,
     `uid` int(10) NOT NULL,
+    `cid` int(10) NOT NULL,
     `category` int(10) NOT NULL,
     `title` varchar(255) NOT NULL,
     `description` varchar(200) NOT NULL,
@@ -68,7 +69,8 @@ CREATE TABLE IF NOT EXISTS `items`(
     `image` varchar(255),
     PRIMARY KEY (`id`),
     FOREIGN KEY (`uid`) REFERENCES users(`id`),
-    FOREIGN KEY (`category`) REFERENCES categories(`id`)
+    FOREIGN KEY (`category`) REFERENCES categories(`id`),
+    FOREIGN KEY (`cid`) REFERENCES colleges(`cid`)
 )ENGINE = InnoDB ;
 
 -- ----------------------------------------

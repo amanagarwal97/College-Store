@@ -4,12 +4,12 @@
                 for ($i=0 ; $i<sizeof($categories) ; $i++)
                 {   
                     echo '<li>' ;
-                    echo '<a href="store.php?category=' .$categories[$i]["id"]. '">' .$categories[$i]["name"]. '</a>' ;
+                    echo '<a href="index.php?category=' .$categories[$i]["id"]. '">' .$categories[$i]["name"]. '</a>' ;
                     echo '</li>' ;
                 }
             ?>
         </ul>
-        <form action="store.php" type = "get">
+        <form action="index.php" type = "get">
         <select name="cid">
             <option value='0' selected disabled>Select College</option>
             <option value=0>All</option>

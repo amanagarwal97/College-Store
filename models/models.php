@@ -1,6 +1,8 @@
 <?php
     
-    
+    /*
+     * Model for checking login
+     */
     function login_query($values)
     {
         require('connect.php');
@@ -28,6 +30,9 @@
         }
     }
     
+    /*
+     * Model for Registering user
+     */
     function register_query($values)
     {
         require('connect.php');
@@ -45,12 +50,15 @@
         }
     }
     
+    /*
+     * Model for posting ad
+     */
     function postad_query($values)
     {
         require('connect.php');
         extract($values);
-        $query = 'INSERT INTO items(uid,category,title,description,contact,itype,price,date,image) 
-                  VALUES(' .$_SESSION["id"]. ',' .$category. ',"' .$title. '","' .$desc. '","' .$contact. '",' .$choice. ',' .$price. ',' .CURRENT_TIMESTAMP. ',"' .$image. '")';
+        $query = 'INSERT INTO items(uid,cid,category,title,description,contact,itype,price,date,image) 
+                  VALUES(' .$_SESSION["id"]. ',' .$_SESSION["cid"]. ',' .$category. ',"' .$title. '","' .$desc. '","' .$contact. '",' .$choice. ',' .$price. ',' .CURRENT_TIMESTAMP. ',"' .$image. '")';
         if (mysqli_query($con,$query))
         {
             return true;
@@ -61,6 +69,9 @@
         }
     }
     
+    /*
+     * Model for getting college list
+     */
     function college_list()
     {
         require('connect.php');
@@ -75,10 +86,14 @@
                     "cname" => $row["cname"]
                 ];
             }
+            
             return $college_data;
         }
     }
     
+    /*
+     * Model for getting category list
+     */
     function category_list()
     {
         require('connect.php');
@@ -97,17 +112,40 @@
         }
     }
     
-    function item_list_query($offset)
+    /*
+     * Model for getting list of items in store
+     */
+    
+    function store_list_query($offset)
     {
         require('connect.php');
-        $query = 'SELECT * FROM items LIMIT 10 OFFSET '. $offset;
+        
+        if (isset($_GET["category"]))
+        {   
+            $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. 'LIMIT 10 OFFSET '. $offset;
+        }
+        
+        else if (isset($_GET["cid"]))
+        {
+            $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. 'LIMIT 10 OFFSET '. $offset;
+        }
+        
+        else if (isset($_GET["cid"]) && isset($_GET["category"]))
+        {
+            $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. ' AND ' .'category=' .$_GET["category"]. 'LIMIT 10 OFFSET '. $offset;
+        }
+        else
+        {
+            $query = 'SELECT * FROM items LIMIT 10 OFFSET '. $offset;
+        }
+        
         if ($rows = mysqli_query($con,$query))
         {
             $i = 0;
             while($row = mysqli_fetch_assoc($rows))
             {
                 
-                $college_query = 'SELECT cname FROM colleges,users WHERE colleges.cid = users.college AND users.id = ' .$row["uid"];
+                $college_query = 'SELECT cname FROM colleges,items WHERE colleges.cid = items.cid AND items.uid = ' .$row["uid"];
                 $college_rows = mysqli_query($con,$college_query);
                 $college_row = mysqli_fetch_assoc($college_rows);
                 
@@ -121,7 +159,7 @@
                     "cname" => $college_row["cname"],
                     "date" => $row["date"],
                     "price" => $row["price"],
-                    "category" => $category_row["name"],
+                    "category" => $category_row["name"]
                 ]; 
             }
             
@@ -129,6 +167,10 @@
         }
         
     }
+    
+    /*
+     * Model for getting items by each user
+     */
     
     function user_item_list()
     {
@@ -155,5 +197,4 @@
     }
     
     
-
 ?>
