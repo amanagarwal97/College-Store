@@ -9,11 +9,12 @@
         
         <meta charset="utf-8">
 	    <meta name="description" content="MyCollegeStore">
-	    <link rel="stylesheet" type="text/css" href="css/styles.css">
 	    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	    <link rel="stylesheet" type="text/css" href="css/styles.css">
+	    <script type="text/javascript" src="js/jquery.min.js"></script>
+	    <script type="text/javascript" src="js/typeahead.jquery.min.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-
+        
     </head>
     <body>
         <nav>

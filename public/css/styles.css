@@ -55,8 +55,8 @@ a:active {
 
 .category {
 	margin-top: 50px;
-	margin-left: 50px;
-	margin-right: 50px;
+	margin-left: 100px;
+	margin-right: 100px;
 	background-color: #eeeeee;
 }
 
@@ -130,4 +130,66 @@ h3, h3 a {
 
 h3 a {
 	color: red;
+}
+
+.product-search input {
+	width: 500px;
+	display: inline-block;
+	margin-left: 320px;
+	text-align: center;
+}
+
+.product-search button {
+	width: 200px;
+	background-color: grey;
+	color: white;
+}
+
+.product-search input, .product-search button {
+	margin-top: 50px;
+	height: 55px;
+	font-family: 'Roboto', sans-serif;
+	border: 2px grey solid;
+}
+
+.product-search {
+	font-size: 0;
+}
+
+.product-search select {
+	display: inline-block;
+	margin-top: 50px;
+	height: 45px;
+	font-family: 'Roboto', sans-serif;
+	border: 2px grey solid;
+	width: 300px;
+}
+
+.college {
+	margin-left: 370px;
+}
+
+.display {
+	background-color: grey;
+	width: 80%;
+	height: 200px;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px grey solid;
+}
+
+.product-image {
+	height: 80%;
+	width: 20%;
+	margin-left: 5px;
+	margin-top: 5px;
+	float: left;
+}
+
+.display h3 {
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	font-size: 30px;
+	margin-top: 8px;
 }

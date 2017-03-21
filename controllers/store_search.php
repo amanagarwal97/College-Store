@@ -4,7 +4,7 @@
     require('config.php');
     require('../models/models.php');
   
-    if (isset($_GET["category"])
+    if (isset($_GET["category"]))
     {
         $item_list = list_by_category($_GET["category"]);
     }

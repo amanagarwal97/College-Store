@@ -1,10 +1,10 @@
 <div class="middle">
-    <form action="login.php" method="post" class="signin-form">
+    <form action="login.php" method="post" class="signin-form" id="login_form">
 		<h1>Sign In</h1>
 		<label for="email">Email</label>
-		<input autocomplete="off" autofocus type="Email" name="email" placeholder="foo@bar.com" required>
+		<input autocomplete="off" autofocus type="Email" name="email" id="email" placeholder="foo@bar.com" required>
 		<label for="password">Password</label>
-		<input type="Password" name="password" placeholder="1234passw0rd" required>
+		<input type="Password" name="password" id="password" placeholder="1234passw0rd" required>
 		<button type="submit">Sign In</button>
 		<a href="/forgot-password/new" class="forgot">Forgot password?</a>
 	</form>

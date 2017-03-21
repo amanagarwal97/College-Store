@@ -2,16 +2,14 @@
 <form action="postad.php" method="post" enctype="multipart/form-data" class="postad-form">
     <h1>PostAd</h1>
     <select name="category">
-    <option value="0" selected disabled>Select Category</option>
-    <?php
-          
-          for ($i=0 ; $i<sizeof($categories) ; $i++)
-          {
+        <option value="0" selected disabled>Select Category</option>
+        <?php
+            for ($i=0 ; $i<sizeof($categories) ; $i++)
+            {
                 echo '<option value=' .$categories[$i]["id"]. '>' .$categories[$i]["name"]. '</option>' ;
-          }
-    ?>
-
-        </select>
+            }
+        ?>
+    </select>
         <input type="text" name="title" placeholder="Item Title (Min. length 4 char)">
         <textarea type="text" name="desc" placeholder="Item description (Max. length 200 char)"></textarea>
         <textarea type="text" name="contact" placeholder="Contact info (Min. length 4 char)"></textarea>
