@@ -1,27 +1,15 @@
-<table style='
-        border: 2px solid wheat;'>
-        <tr>
-            <th>Image</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Date</th>
-            <th>Remove</th>
-        </tr>
-        <?php
-            for ($i=0 ; $i < sizeof($items) ; $i++)
-            {   print('<tr>');
-                print('<td><img width=100px height=50px src="' .$items[$i]["image"]. '"></td>');
-                print('<td>' .$items[$i]["title"]. '</td>');
-                print('<td>' .$items[$i]["desc"]. '</td>');
-                if ($items[$i]["price"] != 0)
-                    print('<td>' .$items[$i]["price"]. '</td>');
-                else
-                    print('<td>On donation</td>');
-                print('<td>' .$items[$i]["date"]. '</td>');
-                print('</tr>');
-            }
-        ?>
-</table>
-            
+    <form class="product-search">
+        <input type="text" name="product" placeholder="Search for Products" id="js-product"/>
+        <button type="submit">Search</button><br/>
+    </form>
+    
+<?php for ($j = 0; $j < 10; $j++) {?>
+    <div class="display">
+        <div class="product-image"><img src="img/default.jpg" alt="product-name"></img></div>
+        <span class="title">Sunglasses</span><br>
+        <span class="description">Description</span><br>
+        <span class="contact">Contact Info</span><br>
+        <span class="status">Price/Donate</span>
+    </div>
+<?php } ?>
         

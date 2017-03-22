@@ -187,9 +187,24 @@ h3 a {
 	float: left;
 }
 
-.display h3 {
-	text-align: center;
+.title {
+	margin-left: 300px;
+	color: white;
 	font-family: 'Roboto', sans-serif;
 	font-size: 30px;
 	margin-top: 8px;
+}
+
+.description {
+	color: white;
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	margin-left: 80px;
+}
+
+.contact, .status {
+	color: white;
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	margin-left: 80px;
 }
