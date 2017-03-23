@@ -197,4 +197,42 @@
     }
     
     
+    function search_product()
+    {
+        require('connect.php');
+        
+        $products_list = [];
+        
+        $query = 'SELECT * FROM items WHERE title LIKE %' .$_GET["product"]. '%';
+        
+        if ($rows = mysqli_query($con,$query))
+        {
+            $i=0;
+            while ($row = mysqli_fetch_assoc($rows))
+            {
+                $product_list[$i++] = [
+                    "title" => $row["title"],
+                    "price" => $row["price"]
+                  ];
+            }
+        }
+        
+        return $products_list;
+     }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            
+    
+    
 ?>

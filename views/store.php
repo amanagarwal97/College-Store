@@ -1,4 +1,4 @@
-    <form class="product-search">
+    <form class="product-search" >
         <input type="text" name="product" placeholder="Search for Products" id="js-product"/>
         <button type="submit">Search</button><br/>
         <select name="cid" class="college">

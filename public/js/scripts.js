@@ -21,7 +21,7 @@ function configure() {
     {
         source: search,
         templates: {
-            empty: "no places found yet",
+            empty: "no products found yet",
             suggestion: _.template("<p><%- category %></p>")
         }
     });

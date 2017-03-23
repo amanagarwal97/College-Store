@@ -20,5 +20,4 @@
     $categories = category_list();
     $colleges = college_list();
     render("store.php" , ["title" => "Store" , "items" => $item_list , "categories" => $categories , "colleges" => $colleges ]);
-
 ?>
