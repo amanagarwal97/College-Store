@@ -154,6 +154,7 @@
                 $category_row = mysqli_fetch_assoc($category_rows);
                 
                 $item_list[$i++] = [
+                    "id" => $row["id"],
                     "image" => $row["image"],
                     "title" => $row["title"],
                     "cname" => $college_row["cname"],
@@ -220,10 +221,32 @@
         return $products_list;
      }
         
+
+    function get_item($id)
+    {
+        require('connect.php');
         
+        $item = [];
         
+        $query = 'SELECT * FROM items WHERE id=' .$id;
         
+        if ($rows = mysqli_query($con,$query))
+        {
+            $row = mysqli_fetch_assoc($rows);
+            $item = [
+                "title" => $row["title"],
+                "desc" => $row["description"],
+                "image" => $row["image"],
+                "price" => $row["price"],
+                "contact" => $row["contact"],
+                "date" => $row["date"]
+                ];     
+        }
         
+        return $item;
+        
+    }
+    
         
         
         

@@ -9,6 +9,7 @@
  */
  
 $(function() {
+    getitem();
     if ($(".signin-form").length > 0){
         var email = $("#email").val();
         var result = emailcheck(email);
@@ -92,4 +93,13 @@ function namecheck(name) {
     var pattern = /[a-z| ]{2,}/i;
     var result = pattern.test(name);
     return result;
+}
+
+function getitem() {
+    $.ajax ({
+       url : 'index.php',
+       method : "GET" ,
+       data : { offset : 0 }
+       
+    });
 }

@@ -40,8 +40,8 @@
                 
                 }while(file_exists($img_path));
                   
-                if (move_uploaded_file($_FILES["image"]["tmp_name"],$img_path))
-                    echo "Image uploaded successfully";
+                if (!move_uploaded_file($_FILES["image"]["tmp_name"],$img_path))
+                    echo "Image could not be uploaded";
             }
         }
         else
@@ -70,8 +70,10 @@
         
         if (@postad_query($details))
         {
-            echo "Ad Posted Successfully";
+            render ('postad_success.php',["title" => "Ad posted successfully"]);
         }
+        else
+            echo 'unable to postad';
 
     }
     

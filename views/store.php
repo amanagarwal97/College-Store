@@ -23,14 +23,17 @@
     </form>
     
 <?php 
+    
+    //Store to have image,title,price,college,category,date and a view item field
     for ($i = 0; $i < sizeof($items) ; $i++)
     {   
         echo '<div class="display">';
-        echo '<div class="product-image"><img src="' .$image. '" alt="product-name"></img></div>';
-        echo '<span class="title">' .$title. '</span><br>';
-        echo '<span class="description">' .$cname. '</span><br>';
-        echo '<span class="contact">' .$category. '</span><br>';
+        echo '<div class="product-image"><img src="' .$items[$i]["image"]. '" alt="product-name"></img></div>';
+        echo '<span class="title">' .$items[$i]["title"]. '</span><br>';
+        echo '<span class="description">' .$items[$i]["cname"]. '</span><br>';
+        echo '<span class="contact">' .$items[$i]["category"]. '</span><br>';
         echo '<span class="status">Price/Donate</span>';
         echo '</div>';
+        echo '<a href="items.php?item=' .$items[$i]["id"]. '">View Item</a>';
     }
 ?>

@@ -35,9 +35,9 @@
                 $details["gender"] = 'F';
             
             if (register_query($details))
-                render ('register_success.php',["title" => "Registration Successful"]);
+                render ('register_status.php',["title" => "Registration Successful", "status" => "Success" ]);
             else
-                echo "Unable to Register"; 
+                render ('register_status.php',["title" => "Registration Failed", "status" => "Failed" ]);
         }    
     }
 ?>
