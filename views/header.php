@@ -14,6 +14,7 @@
 	    <script type="text/javascript" src="js/jquery.min.js"></script>
 	    <script type="text/javascript" src="js/typeahead.jquery.min.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
+        <script type="text/javascript" src="js/underscore-min.js"></script>
         
     </head>
     <body>

@@ -22,12 +22,15 @@
         </select>
     </form>
     
-<?php for ($j = 0; $j < 10; $j++) {?>
-    <div class="display">
-        <div class="product-image"><img src="img/default.jpg" alt="product-name"></img></div>
-        <span class="title">Sunglasses</span><br>
-        <span class="description">Description</span><br>
-        <span class="contact">Contact Info</span><br>
-        <span class="status">Price/Donate</span>
-    </div>
-<?php } ?>
+<?php 
+    for ($i = 0; $i < sizeof($items) ; $i++)
+    {   
+        echo '<div class="display">';
+        echo '<div class="product-image"><img src="' .$image. '" alt="product-name"></img></div>';
+        echo '<span class="title">' .$title. '</span><br>';
+        echo '<span class="description">' .$cname. '</span><br>';
+        echo '<span class="contact">' .$category. '</span><br>';
+        echo '<span class="status">Price/Donate</span>';
+        echo '</div>';
+    }
+?>

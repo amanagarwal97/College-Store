@@ -9,7 +9,7 @@
  */
  
 $(function() {
-    
+    configure();
 });
 
 function configure() {
