@@ -13,7 +13,7 @@
                 }
             ?>
         </select>
-        <input type="Password" name="pwd" placeholder="Password" id="password" required>
+        <input type="Password" name="pwd" placeholder="Password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required>
         <input type="Password" name="rpwd" placeholder="Re-type Password" id="re_password" required>
         <input type="radio" name="gender" value="0" class="sex"><span>M </span><input type="radio" name="gender" value="1" class="sex"><span>F</span><br><br>
         <button type="submit" name="submit">Sign Up</button>   
