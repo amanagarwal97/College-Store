@@ -208,3 +208,11 @@ h3 a {
 	font-size: 20px;
 	margin-left: 80px;
 }
+
+.greentext {
+	color: green;
+}
+
+.redtext {
+	color: red;
+}

@@ -3,7 +3,8 @@
         <button type="submit">Search</button><br/>
     </form>
     
-<?php for ($j = 0; $j < 10; $j++) {?>
+<?php 
+    for ($j = 0; $j < 10; $j++) {?>
     <div class="display">
         <div class="product-image"><img src="img/default.jpg" alt="product-name"></img></div>
         <span class="title">Sunglasses</span><br>
