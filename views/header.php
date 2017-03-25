@@ -13,6 +13,7 @@
 	    <link rel="stylesheet" type="text/css" href="css/styles.css">
 	    <script type="text/javascript" src="js/jquery.min.js"></script>
 	    <script type="text/javascript" src="js/typeahead.jquery.min.js"></script>
+	    <script type="text/javascript" src="js/underscore-min.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
         
     </head>
