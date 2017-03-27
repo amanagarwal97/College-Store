@@ -63,7 +63,7 @@ $(function() {
 });
 
 function configure() {
-    $("#js-product .typeahead").typeahead({
+    $("#js-product").typeahead({
         autoselect: true,
         highlight: true,
         minLength: 1
@@ -79,7 +79,7 @@ function configure() {
 
 function search(query, cb) {
     var parameters = {
-        product : query
+        product: query
     };
     $.getJSON("search.php", parameters)
     .done(function(data, textStatus, jqXHR) {

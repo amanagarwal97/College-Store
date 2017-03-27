@@ -227,7 +227,7 @@
             $i=0;
             while ($row = mysqli_fetch_assoc($rows))
             {
-                $products_list[$i++] = [
+                $products_list[] = [
                     "title" => $row["title"],
                     "price" => $row["price"]
                   ];
