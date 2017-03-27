@@ -125,6 +125,10 @@
             $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. 'LIMIT 10 OFFSET '. $offset;
         }
         
+        else if (isset($_GET["product"]))
+        {
+            $query = 'SELECT * FROM items WHERE title LIKE "%' .$_GET["product"]. '%"' . 'LIMIT 10 OFFSET '. $offset;
+        }
         else if (isset($_GET["cid"]))
         {
             $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. 'LIMIT 10 OFFSET '. $offset;
@@ -133,6 +137,18 @@
         else if (isset($_GET["cid"]) && isset($_GET["category"]))
         {
             $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. ' AND ' .'category=' .$_GET["category"]. 'LIMIT 10 OFFSET '. $offset;
+        }
+        else if (isset($_GET["cid"]) && isset($_GET["product"]))
+        {
+            $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"' . 'LIMIT 10 OFFSET'. $offset;
+        }
+        else if (isset($_GET["category"]) && isset($_GET["product"]))
+        {
+            $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"' . 'LIMIT 10 OFFSET'. $offset;
+        }
+        else if (isset($_GET["category"]) && isset($_GET["cid"]) && isset($_GET["product"]))
+        {
+            $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. ' AND ' .'cid=' .$_GET["cid"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"' . 'LIMIT 10 OFFSET'. $offset;
         }
         else
         {
@@ -204,14 +220,14 @@
         
         $products_list = [];
         
-        $query = 'SELECT * FROM items WHERE title LIKE %' .$_GET["product"]. '%';
+        $query = 'SELECT * FROM items WHERE title LIKE "%' .$_GET["product"]. '%"';
         
         if ($rows = mysqli_query($con,$query))
-        {
+        {   
             $i=0;
             while ($row = mysqli_fetch_assoc($rows))
             {
-                $product_list[$i++] = [
+                $products_list[$i++] = [
                     "title" => $row["title"],
                     "price" => $row["price"]
                   ];

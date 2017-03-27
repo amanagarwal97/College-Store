@@ -63,7 +63,7 @@ $(function() {
 });
 
 function configure() {
-    $("#js-product").typeahead({
+    $("#js-product .typeahead").typeahead({
         autoselect: true,
         highlight: true,
         minLength: 1
@@ -72,14 +72,14 @@ function configure() {
         source: search,
         templates: {
             empty: "no products found yet",
-            suggestion: _.template("<p><%- category %></p>")
+            suggestion: _.template("<p><%- title %> , <%- price %></p>")
         }
     });
 }
 
 function search(query, cb) {
     var parameters = {
-        product: query
+        product : query
     };
     $.getJSON("search.php", parameters)
     .done(function(data, textStatus, jqXHR) {
