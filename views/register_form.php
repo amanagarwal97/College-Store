@@ -1,7 +1,9 @@
 <div class="middle">
     <form action="register.php" method="post" class="signup-form">
         <h1>Sign Up</h1>
+        <span id="emailcheck">Invalid Email</span>
         <input autofocus type="Email" name="email" placeholder="E-mail Address" id="email" required>
+        <span id="namecheck">Invalid Name</span>
         <input type="text" placeholder="First Name" name="fname" id="fname" required>
         <select name="cid">
             <option value='0' selected disabled>Select College</option>
@@ -15,8 +17,8 @@
         </select>
         <input type="Password" name="pwd" placeholder="Password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required>
         <input type="Password" name="rpwd" placeholder="Re-type Password" id="re_password" required>
-        <input type="radio" name="gender" value="0" class="sex"><span>M </span><input type="radio" name="gender" value="1" class="sex"><span>F</span><br><br>
-        <button type="submit" name="submit">Sign Up</button>   
+        <input type="radio" name="gender" value="0" class="sex"><span class="male">M </span><input type="radio" name="gender" value="1" class="sex"><span class="female">F</span><br><br>
+        <button type="submit" name="submit" id="js-button">Sign Up</button>   
     </form>
 </div>
 <h3>Already have an account? <a href="login.php">Sign In</a></h3>
