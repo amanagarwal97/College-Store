@@ -21,6 +21,15 @@ $(function() {
                 $("#email").removeClass("greentext").addClass("redtext");
             }
         });
+        $("#js-button").on('click', function() {
+            var email = $("#email").val();
+            var result = emailcheck(email);
+            if(!result){
+                $("#emailcheck").css("display", "inline");
+                $("#email").val("");
+                return false;
+            }
+        });
     }
     else if ($(".product-search").length > 0){
         configure();
@@ -57,6 +66,33 @@ $(function() {
             else {
                 $("#password").removeClass("greentext").addClass("redtext");
                 $("#re_password").removeClass("greentext").addClass("redtext");
+            }
+        });
+        $("#js-button").on('click', function() {
+            var email = $("#email").val();
+            var result = emailcheck(email);
+            var name = $("#fname").val();
+            var result1 = namecheck(name);
+            if(!result && !result1){
+                $("#emailcheck").css("display", "inline");
+                $("#email").val("");
+                $("#namecheck").css("display", "inline");
+                $("#fname").val("");
+                return false;
+            }else if(!result) {
+                $("#emailcheck").css("display", "inline");
+                $("#email").val("");
+                $("#namecheck").css("display", "none");
+                return false;
+            }
+            else if(!result1) {
+                $("#namecheck").css("display", "inline");
+                $("#fname").val("");
+                $("#emailcheck").css("display", "none");
+                return false;
+            }else {
+                $("#emailcheck").css("display", "none");
+                $("#namecheck").css("display", "none");
             }
         });
     }

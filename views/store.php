@@ -1,6 +1,5 @@
     <form class="product-search" >
         <input type="text" name="product" placeholder="Search for Products" id="js-product"/>
-        <button type="submit">Search</button><br/>
         <select name="cid" class="college">
             <option value='0' selected disabled>Select College</option>
             <option value=0>All</option>
