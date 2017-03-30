@@ -3,12 +3,11 @@
 		<h1>Sign In</h1>
 		<label for="email">Email</label>
 		<span id="emailcheck">Invalid Email</span>
-		<input autocomplete="off" autofocus type="Email" name="email" id="email" placeholder="foo@bar.com" required>
+		<input autocomplete="off" autofocus type="Email" name="email" id="email" placeholder="E-mail Id" required>
 		
 		<label for="password">Password</label>
-		<input type="Password" name="password" id="password" placeholder="1234passw0rd" required>
+		<input type="Password" name="password" id="password" placeholder="Password" required>
 		<button type="submit" id="js-button">Sign In</button>
-		<a href="/forgot-password/new" class="forgot">Forgot password?</a>
 	</form>
 </div>
 <h3> or <a href="register.php">Register</a> for an account.</h3>

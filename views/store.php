@@ -29,9 +29,17 @@
         echo '<div class="display">';
         echo '<div class="product-image"><img src="' .$items[$i]["image"]. '" alt="product-name"></img></div>';
         echo '<span class="title">' .$items[$i]["title"]. '</span><br>';
-        echo '<span class="description">' .$items[$i]["cname"]. '</span><br>';
-        echo '<span class="contact">' .$items[$i]["category"]. '</span><br>';
-        echo '<span class="status">Price/Donate</span>';
+        echo '<span class="college">' .$items[$i]["cname"]. '</span><br>';
+        echo '<span class="category">' .$items[$i]["category"]. '</span><br>';
+        echo '<span class="date">' .$items[$i]["date"]. '</span><br>';
+        if ( $items[$i]["price"] == 0 )
+        {
+            echo '<span class="status">On Donation</span><br>';
+        }
+        else 
+        {
+            echo '<span class="status">' .$items[$i]["price"]. '</span><br>';
+        }
         echo '</div>';
         echo '<a href="items.php?item=' .$items[$i]["id"]. '">View Item</a>';
     }

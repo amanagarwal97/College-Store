@@ -58,7 +58,7 @@
         require('connect.php');
         extract($values);
         $query = 'INSERT INTO items(uid,cid,category,title,description,contact,itype,price,date,image) 
-                  VALUES(' .$_SESSION["id"]. ',' .$_SESSION["cid"]. ',' .$category. ',"' .$title. '","' .$desc. '","' .$contact. '",' .$choice. ',' .$price. ',' .CURRENT_TIMESTAMP. ',"' .$image. '")';
+                  VALUES(' .$_SESSION["id"]. ',' .$_SESSION["cid"]. ',' .$category. ',"' .$title. '","' .$desc. '","' .$contact. '",' .$choice. ',' .$price. ',"' .date_format(date_create(),'jS F,Y'). '","' .$image. '")';
         if (mysqli_query($con,$query))
         {
             return true;
@@ -78,10 +78,9 @@
         $query = 'SELECT * FROM colleges';
         if ($rows = mysqli_query($con,$query))
         {   
-            $i = 0;
             while($row = mysqli_fetch_assoc($rows))
             {
-                $college_data[$i++] = [
+                $college_data[] = [
                     "cid" => $row["cid"],
                     "cname" => $row["cname"]
                 ];
@@ -100,10 +99,9 @@
         $query = 'SELECT * FROM categories';
         if ($rows = mysqli_query($con,$query))
         {
-            $i = 0;
             while ($row = mysqli_fetch_assoc($rows))
             {
-                $category_data[$i++] = [
+                $category_data[] = [
                     "id" => $row["id"],
                     "name" => $row["name"]
                 ];
@@ -129,6 +127,7 @@
         {
             $query = 'SELECT * FROM items WHERE title LIKE "%' .$_GET["product"]. '%"' . 'LIMIT 10 OFFSET '. $offset;
         }
+        
         else if (isset($_GET["cid"]))
         {
             $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. 'LIMIT 10 OFFSET '. $offset;
@@ -138,18 +137,22 @@
         {
             $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. ' AND ' .'category=' .$_GET["category"]. 'LIMIT 10 OFFSET '. $offset;
         }
+        
         else if (isset($_GET["cid"]) && isset($_GET["product"]))
         {
             $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"' . 'LIMIT 10 OFFSET'. $offset;
         }
+        
         else if (isset($_GET["category"]) && isset($_GET["product"]))
         {
             $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"' . 'LIMIT 10 OFFSET'. $offset;
         }
+        
         else if (isset($_GET["category"]) && isset($_GET["cid"]) && isset($_GET["product"]))
         {
             $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. ' AND ' .'cid=' .$_GET["cid"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"' . 'LIMIT 10 OFFSET'. $offset;
         }
+        
         else
         {
             $query = 'SELECT * FROM items LIMIT 10 OFFSET '. $offset;
@@ -157,7 +160,6 @@
         
         if ($rows = mysqli_query($con,$query))
         {
-            $i = 0;
             while($row = mysqli_fetch_assoc($rows))
             {
                 
@@ -169,7 +171,7 @@
                 $category_rows = mysqli_query($con,$category_query);
                 $category_row = mysqli_fetch_assoc($category_rows);
                 
-                $item_list[$i++] = [
+                $item_list[] = [
                     "id" => $row["id"],
                     "image" => $row["image"],
                     "title" => $row["title"],
@@ -195,15 +197,14 @@
         $query = 'SELECT * FROM items WHERE uid=' . $_SESSION["id"];
         if ($rows = mysqli_query($con,$query))
         {
-            $i = 0;
             while ($row = mysqli_fetch_assoc($rows))
             {
-                $item_data[$i++] = [
+                $item_data[] = [
+                    "id" => $row["id"],
                     "image" => $row["image"],
                     "title" => $row["title"],
                     "desc" => $row["description"],
                     "date" => $row["date"],
-                    "type" => $row["itype"],
                     "price" => $row["price"]
                 ];
                 
@@ -224,7 +225,6 @@
         
         if ($rows = mysqli_query($con,$query))
         {   
-            $i=0;
             while ($row = mysqli_fetch_assoc($rows))
             {
                 $products_list[] = [
@@ -264,7 +264,15 @@
     }
     
         
-        
+    function remove_item($id)
+    {
+        require('connect.php');
+        $query = 'DELETE FROM items WHERE id=' .$id ;
+        if (mysqli_query($con,$query))
+        {
+            echo 'Successfully removed item from list';
+        }
+    }
         
         
         

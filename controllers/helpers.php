@@ -59,6 +59,16 @@
         exit;
     }
     
+    /**
+     * Shows an error message when something goes wrong.
+     */
+    function apologise($message)
+    {
+        render('apology.php' , [ "message" => $message ] );
+    }
+     
+     
+    
     function check_file($_file_name,$imagetype)
     {
         $uploaded = true;
@@ -80,14 +90,14 @@
         // Check file size
         if ($_FILES["image"]["size"] > 30000000) 
         {
-            echo "Sorry, your file is too large.";
+            apologise("Sorry, your file is too large.");
             $uploaded = false;
         }
 
         // Allow certain file formats
         if($imagetype != "jpg" && $imagetype != "png" && $imagetype != "jpeg") 
         {
-            echo "Sorry, only JPG, JPEG, PNG files are allowed.";
+            apologise("Sorry, only JPG, JPEG, PNG files are allowed.");
             $uploaded = false;
         }
         
@@ -106,6 +116,6 @@
         }
 
         return $randomString;
-}
+    }
 
 ?>
