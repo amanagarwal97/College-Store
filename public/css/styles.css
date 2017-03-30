@@ -149,10 +149,6 @@ h3 a {
 	border: 2px grey solid;
 }
 
-.product-search {
-	font-size: 0;
-}
-
 .product-search select {
 	display: inline-block;
 	margin-top: 50px;
