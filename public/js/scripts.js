@@ -63,7 +63,7 @@ $(function() {
 });
 
 function configure() {
-    $("#js-product .typeahead").typeahead({
+    $("#js-product").typeahead({
         autoselect: true,
         highlight: true,
         minLength: 1
