@@ -239,3 +239,97 @@ h3 a {
 	margin-bottom: 10px;
 	font-family: 'Roboto', sans-serif;
 }
+
+.image img {
+	max-width: 552px;
+	min-height: 352px;
+	max-height: 552px;
+	border: 2px solid lightgrey;
+	margin-left: 50px;
+	margin-right: 50px;
+	float: left;
+	position: relative;
+}
+
+.image h2 {
+	position: absolute; 
+	top: 110px; 
+	left: 60px;  
+}
+
+h2 span { 
+   color: white; 
+   font: bold 14px/35px Helvetica, Sans-Serif; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px; 
+}
+
+main h2 {
+	font-family: left;
+	line-height: 1.4;
+	font-size: 25px;
+	font-weight: inherit;
+	font-family: 'Roboto', sans-serif;
+}
+
+.product {
+	margin-top: 70px;
+}
+main .price {
+	font-size: 28px;
+	vertical-align: sub;
+	font-weight: bold;
+	color: white;
+}
+
+.categor {
+	color: white;
+}
+
+.descriptionp {
+    font-size: 24px;
+    margin-top: 24px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.descriptionp .descriptionh {
+    font-weight: 500;
+    width: 150px;
+    padding-right: 10px;
+    color: white;
+    float: left;
+}
+
+.descriptionp .descriptionn {
+    font-weight: 500;
+    color: black;
+    position: relative;
+    display: inline;
+}
+
+.seller {
+    font-size: 24px;
+    margin-top: 24px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.seller .sellerh {
+    font-weight: 500;
+    width: 150px;
+    padding-right: 10px;
+    color: white;
+    float: left;
+}
+
+.seller .sellern {
+    font-weight: 500;
+    color: darkred;
+    position: relative;
+    display: inline;
+}
