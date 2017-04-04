@@ -284,7 +284,7 @@ main .price {
 	color: white;
 }
 
-.categor {
+.catego {
 	color: white;
 }
 
@@ -332,4 +332,43 @@ main .price {
     color: darkred;
     position: relative;
     display: inline;
+}
+
+.row {
+	margin-top: 70px;
+	margin-left: 100px;
+	height: 550px;
+}
+
+.item {
+	display: inline-block;
+	width: 350px;
+	vertical-align: top;
+	margin-right: 30px;
+}
+
+.product-card img {
+	height: 500px;
+	width: 350px;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+.product-info {
+	margin-top: auto;
+	padding-top: 10px;
+	text-align: center;
+	width: 350px;
+}
+
+h5 {
+	margin: 0;
+	font-size: 20px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.product-info span {
+	font-size: 20px;
+	font-family: 'Roboto', sans-serif;
+	color: white;
 }

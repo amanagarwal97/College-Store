@@ -4,7 +4,7 @@
 			<h2><span>On Sell</span></h2>
 		</div>
 		<main>
-			<span class="categor">Category</span>
+			<span class="catego">Category</span>
 			<h2>Tecknet M268 Raptor Black Wired Optical Mouse Gaming Mouse  (USB, Black, Blue)</h2>
 			<span class="price">&#8377;789</span>
 			<div class="descriptionp">

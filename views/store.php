@@ -21,6 +21,77 @@
         </select>
     </form>
     
+    <div class="row">
+		<div class="item">
+			<div class="product-card">
+				<a href="">
+					<img src="img/default.jpg" alt="image">
+				</a>
+			</div>
+			<div class="product-info">
+				<h5>Tecknet M268 Raptor Black Wired Optical Mouse Gaming Mouse  (USB, Black, Blue)</h5>
+				<span>&#8377;789</span>
+			</div>
+		</div>
+		<div class="item">
+			<div class="product-card">
+				<a href="">
+					<img src="img/default.jpg" alt="image">
+				</a>
+			</div>
+			<div class="product-info">
+				<h5>Name</h5>
+				<span>&#8377;789</span>
+			</div>
+		</div>
+		<div class="item">
+			<div class="product-card">
+				<a href="">
+					<img src="img/default.jpg" alt="image">
+				</a>
+			</div>
+			<div class="product-info">
+				<h5>Name</h5>
+				<span>On Donation</span>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="item">
+			<div class="product-card">
+				<a href="">
+					<img src="img/default.jpg" alt="image">
+				</a>
+			</div>
+			<div class="product-info">
+				<h5>Tecknet M268 Raptor Black Wired Optical Mouse Gaming Mouse  (USB, Black, Blue)</h5>
+				<span>&#8377;789</span>
+			</div>
+		</div>
+		<div class="item">
+			<div class="product-card">
+				<a href="">
+					<img src="img/default.jpg" alt="image">
+				</a>
+			</div>
+			<div class="product-info">
+				<h5>Name</h5>
+				<span>&#8377;789</span>
+			</div>
+		</div>
+		<div class="item">
+			<div class="product-card">
+				<a href="">
+					<img src="img/default.jpg" alt="image">
+				</a>
+			</div>
+			<div class="product-info">
+				<h5>Name</h5>
+				<span>On Donation</span>
+			</div>
+		</div>
+	</div>
+    
 <?php 
     
     //Store to have image,title,price,college,category,date and a view item field
