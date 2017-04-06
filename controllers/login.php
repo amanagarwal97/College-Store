@@ -13,11 +13,11 @@
     {
         if (empty($_POST["email"]))
         {
-            echo "Please enter an e-mail address";
+            apologise("Please enter an e-mail address");
         }
         else if (empty($_POST["password"]))
         {
-            echo "Please enter the password";
+            apologise("Please enter the password");
         }
         else
         {

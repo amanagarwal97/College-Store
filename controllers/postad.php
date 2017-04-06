@@ -15,11 +15,11 @@
         if (empty($_POST["title"]) || empty($_POST["desc"]) || empty($_POST["contact"]) || (!isset($_POST["choice"])))
             echo "Please fill all details";
         else if ($_POST["category"] == 0)
-            echo "Select a category";
+            apologise('Select a valid category');
         else if ($_POST["choice"] == 0 && isset($_POST["price"]))
-            echo "Invalid Price";
+            apologise('Invalid Price');
         else if (preg_match('/[.]/',$_POST["price"]) || $_POST["price"] == 0)
-            echo "Please enter a valid price";
+            apologise('Please enter a valid price');
         
         $img_path = '';
         if (file_exists($_FILES["image"]["tmp_name"]) || is_uploaded_file($_FILES["image"]["tmp_name"]))
@@ -68,12 +68,12 @@
             "image" => $img_path
           ];
         
-        if (@postad_query($details))
+        if (postad_query($details))
         {
             render ('postad_success.php',["title" => "Ad posted successfully"]);
         }
         else
-            echo 'unable to postad';
+            apologise('Unable to Post your Ad. Please Try Again. ');
 
     }
     

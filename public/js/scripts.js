@@ -140,9 +140,12 @@ function namecheck(name) {
 
 function getitem() {
     $.ajax ({
-       url : 'index.php',
-       method : "GET" ,
-       data : { offset : 0 }
+       url : 'index.php?offset=0',
+       method : "GET",
+       success : function()
+       {
+        console.log('done');
+       }
        
     });
 }

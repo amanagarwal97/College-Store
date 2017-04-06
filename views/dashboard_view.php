@@ -2,9 +2,80 @@
         <input type="text" name="product" placeholder="Search for Products" id="js-product"/>
         <button type="submit">Search</button><br/>
     </form>
-    
+
+<div class="row">
+		<div class="item">
+			<div class="product-card">
+				<a href="">
+					<img src="img/default.jpg" alt="image">
+				</a>
+			</div>
+			<div class="product-info">
+				<h5>Tecknet M268 Raptor Black Wired Optical Mouse Gaming Mouse  (USB, Black, Blue)</h5>
+				<span>&#8377;789</span>
+			</div>
+		</div>
+		<div class="item">
+			<div class="product-card">
+				<a href="">
+					<img src="img/default.jpg" alt="image">
+				</a>
+			</div>
+			<div class="product-info">
+				<h5>Name</h5>
+				<span>&#8377;789</span>
+			</div>
+		</div>
+		<div class="item">
+			<div class="product-card">
+				<a href="">
+					<img src="img/default.jpg" alt="image">
+				</a>
+			</div>
+			<div class="product-info">
+				<h5>Name</h5>
+				<span>On Donation</span>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="item">
+			<div class="product-card">
+				<a href="">
+					<img src="img/default.jpg" alt="image">
+				</a>
+			</div>
+			<div class="product-info">
+				<h5>Tecknet M268 Raptor Black Wired Optical Mouse Gaming Mouse  (USB, Black, Blue)</h5>
+				<span>&#8377;789</span>
+			</div>
+		</div>
+		<div class="item">
+			<div class="product-card">
+				<a href="">
+					<img src="img/default.jpg" alt="image">
+				</a>
+			</div>
+			<div class="product-info">
+				<h5>Name</h5>
+				<span>&#8377;789</span>
+			</div>
+		</div>
+		<div class="item">
+			<div class="product-card">
+				<a href="">
+					<img src="img/default.jpg" alt="image">
+				</a>
+			</div>
+			<div class="product-info">
+				<h5>Name</h5>
+				<span>On Donation</span>
+			</div>
+		</div>
+	</div>
+
 <?php 
-    
+/*
     //dashboard should have image, title , description , date , price and a remove item field
     for ($i = 0; $i < sizeof($items) ; $i++)
     {   
@@ -13,7 +84,18 @@
         echo '<span class="title">' .$items[$i]["title"]. '</span><br>';
         echo '<span class="description">' .$items[$i]["desc"]. '</span><br>';
         echo '<span class="contact">' .$items[$i]["date"]. '</span><br>';
-        echo '<span class="status">Price/Donate</span>';
+        if ( $items[$i]["price"] == 0 )
+        {
+            echo '<span class="status">On Donation</span><br>';
+        }
+        else 
+        {
+            echo '<span class="status">' .$items[$i]["price"]. '</span><br>';
+        }
+        echo '<form method="POST" action="delete.php">';
+        echo '<button id="remove" name="delete" value=' .$items[$i]["id"]. '>Remove Item </button>';
+        echo '</form>';
         echo '</div>';
     }
+*/
 ?>
