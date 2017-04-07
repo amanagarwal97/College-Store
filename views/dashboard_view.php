@@ -19,15 +19,13 @@
             echo '<div class="item"><div class="product-card"><a href="items.php?item=' .$items[$j]["id"]. '"><img src="' .$items[$j]["image"]. '" alt="Item Image" ></a></div>';
             echo '<div class="product-info">';
             echo '<h5>' .$items[$j]["title"]. '</h5>';
-            echo '<span>' .$items[$j]["desc"]. '</span><br>';
-            echo '<span>' .$items[$j]["date"]. '</span><br>';
             if ( $items[$j]["price"] == 0 )
             {
                 echo '<span>On Donation</span>';
             }
             else 
             {
-                echo '<span>' .$items[$j]["price"]. '</span>';
+                echo '<span>&#8377;' .$items[$j]["price"]. '</span>';
             }
             
             echo '<form method="POST" action="delete.php">';

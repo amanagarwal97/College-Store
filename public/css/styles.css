@@ -84,7 +84,7 @@ ul.category > li > a {
 	padding: 20px 40px;
 	margin: auto;
 	background-color: white;
-	margin-top: 35px;
+	margin-top: 100px;
 }
 
 h1 {
@@ -146,7 +146,7 @@ h3 a {
 	color: red;
 }
 
-.product-search input {
+.store-in {
 	width: 400px;
 	display: inline-block;
 	margin-left: 300px;
@@ -155,6 +155,7 @@ h3 a {
 	height: 55px;
 	font-family: 'Molengo', sans-serif;
 	border: 2px grey solid;
+	border-radius: 5px;
 	position : absolute;
 }
 
@@ -164,6 +165,7 @@ h3 a {
 	height: 55px;
 	font-family: 'Molengo', sans-serif;
 	border: 2px grey solid;
+	border-radius: 5px;
 	width: 320px;
 }
 
@@ -175,11 +177,13 @@ h3 a {
     margin-left : 10px;
 }
 
-#search-button {
-    display : inline-block;
-    border: 2px grey solid;
-    margin-left : 10px;
-
+.glass {
+	border: 1px solid lightgrey;
+	border-radius: 5px;
+	height: 55px;
+	width: 56px;
+	margin-bottom: -23px;
+	
 }
 
 .display {
@@ -354,9 +358,9 @@ main .price {
 }
 
 .row {
-	margin-top: 60px;
-	margin-left: 170px;
-	height: 500px;
+	margin-top: 70px;
+	margin-left: 100px;
+	height: 550px;
 }
 
 .item {
@@ -369,8 +373,8 @@ main .price {
 .product-card img {
 	height: 500px;
 	width: 350px;
-	border: 2px solid black;
 	border-radius: 10px;
+	border: 2px solid black;
 }
 
 .product-info {
@@ -383,11 +387,11 @@ main .price {
 h5 {
 	margin: 0;
 	font-size: 20px;
-	font-family: 'Molengo', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 .product-info span {
 	font-size: 20px;
-	font-family: 'Molengo', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	color: white;
 }

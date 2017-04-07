@@ -1,5 +1,5 @@
     <form class="product-search" >
-        <input type="text" name="product" placeholder="Search for Products" id="js-product"/>
+        <input type="text" name="product" placeholder="Search for Products" class="store-in" id="js-product"/>
         <select name="cid" class="college">
             <option value='0' selected disabled>Select College</option>
             <option value=0>All</option>
@@ -19,7 +19,7 @@
                 }
             ?>
         </select>
-        <button type="submit" id="search-button"><img src="img/search.png"></button>
+        <input type="image" src="img/search.png" alt="Submit form" class="glass">
     </form>
   
 <?php 
@@ -38,16 +38,13 @@
             echo '<div class="item"><div class="product-card"><a href="items.php?item=' .$items[$j]["id"]. '"><img src="' .$items[$j]["image"]. '" alt="Item Image" ></a></div>';
             echo '<div class="product-info">';
             echo '<h5>' .$items[$j]["title"]. '</h5>';
-            echo '<span>' .$items[$j]["cname"]. '</span><br>';
-            echo '<span>' .$items[$j]["category"]. '</span><br>';
-            echo '<span>' .$items[$j]["date"]. '</span><br>';
             if ( $items[$j]["price"] == 0 )
             {
                 echo '<span>On Donation</span>';
             }
             else 
             {
-                echo '<span>' .$items[$j]["price"]. '</span>';
+                echo '<span>&#8377;' .$items[$j]["price"]. '</span>';
             }
             echo '</div></div>';
          }
