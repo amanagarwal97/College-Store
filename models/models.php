@@ -20,7 +20,7 @@
             {   
                 $_SESSION["id"] = $row["id"];
                 $_SESSION["cid"] = $row["college"];
-                $_SESSION["name"] = $row["fname"];
+                $_SESSION["name"] = $row["name"];
                 return true;
             }
             else
@@ -114,48 +114,50 @@
      * Model for getting list of items in store
      */
     
-    function store_list_query($offset)
+    function store_list_query()
     {
         require('connect.php');
         
+        $item_list = [];
+        
         if (isset($_GET["category"]))
         {   
-            $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. 'LIMIT 10 OFFSET '. $offset;
+            $query = 'SELECT * FROM items WHERE category=' .$_GET["category"];
         }
         
         else if (isset($_GET["product"]))
         {
-            $query = 'SELECT * FROM items WHERE title LIKE "%' .$_GET["product"]. '%"' . 'LIMIT 10 OFFSET '. $offset;
+            $query = 'SELECT * FROM items WHERE title LIKE "%' .$_GET["product"]. '%"';
         }
         
         else if (isset($_GET["cid"]))
         {
-            $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. 'LIMIT 10 OFFSET '. $offset;
+            $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"];
         }
         
         else if (isset($_GET["cid"]) && isset($_GET["category"]))
         {
-            $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. ' AND ' .'category=' .$_GET["category"]. 'LIMIT 10 OFFSET '. $offset;
+            $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. ' AND ' .'category=' .$_GET["category"];
         }
         
         else if (isset($_GET["cid"]) && isset($_GET["product"]))
         {
-            $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"' . 'LIMIT 10 OFFSET'. $offset;
+            $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"';
         }
         
         else if (isset($_GET["category"]) && isset($_GET["product"]))
         {
-            $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"' . 'LIMIT 10 OFFSET'. $offset;
+            $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"';
         }
         
         else if (isset($_GET["category"]) && isset($_GET["cid"]) && isset($_GET["product"]))
         {
-            $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. ' AND ' .'cid=' .$_GET["cid"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"' . 'LIMIT 10 OFFSET'. $offset;
+            $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. ' AND ' .'cid=' .$_GET["cid"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"';
         }
         
         else
         {
-            $query = 'SELECT * FROM items LIMIT 10 OFFSET '. $offset;
+            $query = 'SELECT * FROM items';
         }
         
         if ($rows = mysqli_query($con,$query))
@@ -182,9 +184,13 @@
                 ]; 
             }
             
-            return $item_list;
+        }
+        else
+        {
+            $item_list = [];
         }
         
+        return $item_list;
     }
     
     /*

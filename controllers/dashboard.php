@@ -7,5 +7,4 @@
     $list = user_item_list();
     render("dashboard_view.php",["title" => "Dashboard" , "items" => $list]);
     
-
 ?>

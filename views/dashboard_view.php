@@ -1,101 +1,41 @@
-    <form class="product-search">
-        <input type="text" name="product" placeholder="Search for Products" id="js-product"/>
-        <button type="submit">Search</button><br/>
-    </form>
-
-<div class="row">
-		<div class="item">
-			<div class="product-card">
-				<a href="">
-					<img src="img/default.jpg" alt="image">
-				</a>
-			</div>
-			<div class="product-info">
-				<h5>Tecknet M268 Raptor Black Wired Optical Mouse Gaming Mouse  (USB, Black, Blue)</h5>
-				<span>&#8377;789</span>
-			</div>
-		</div>
-		<div class="item">
-			<div class="product-card">
-				<a href="">
-					<img src="img/default.jpg" alt="image">
-				</a>
-			</div>
-			<div class="product-info">
-				<h5>Name</h5>
-				<span>&#8377;789</span>
-			</div>
-		</div>
-		<div class="item">
-			<div class="product-card">
-				<a href="">
-					<img src="img/default.jpg" alt="image">
-				</a>
-			</div>
-			<div class="product-info">
-				<h5>Name</h5>
-				<span>On Donation</span>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="item">
-			<div class="product-card">
-				<a href="">
-					<img src="img/default.jpg" alt="image">
-				</a>
-			</div>
-			<div class="product-info">
-				<h5>Tecknet M268 Raptor Black Wired Optical Mouse Gaming Mouse  (USB, Black, Blue)</h5>
-				<span>&#8377;789</span>
-			</div>
-		</div>
-		<div class="item">
-			<div class="product-card">
-				<a href="">
-					<img src="img/default.jpg" alt="image">
-				</a>
-			</div>
-			<div class="product-info">
-				<h5>Name</h5>
-				<span>&#8377;789</span>
-			</div>
-		</div>
-		<div class="item">
-			<div class="product-card">
-				<a href="">
-					<img src="img/default.jpg" alt="image">
-				</a>
-			</div>
-			<div class="product-info">
-				<h5>Name</h5>
-				<span>On Donation</span>
-			</div>
-		</div>
-	</div>
+<div>
+<h1 color="black" style="margin-top : 100px;">
+    Welcome , <?php echo $_SESSION["name"] ; ?> </h1>
+    </div>
 
 <?php 
-/*
+    
     //dashboard should have image, title , description , date , price and a remove item field
-    for ($i = 0; $i < sizeof($items) ; $i++)
-    {   
-        echo '<div class="display">';
-        echo '<div class="product-image"><img src="' .$items[$i]["image"]. '" alt="product-name"></img></div>';
-        echo '<span class="title">' .$items[$i]["title"]. '</span><br>';
-        echo '<span class="description">' .$items[$i]["desc"]. '</span><br>';
-        echo '<span class="contact">' .$items[$i]["date"]. '</span><br>';
-        if ( $items[$i]["price"] == 0 )
-        {
-            echo '<span class="status">On Donation</span><br>';
-        }
-        else 
-        {
-            echo '<span class="status">' .$items[$i]["price"]. '</span><br>';
-        }
-        echo '<form method="POST" action="delete.php">';
-        echo '<button id="remove" name="delete" value=' .$items[$i]["id"]. '>Remove Item </button>';
-        echo '</form>';
-        echo '</div>';
-    }
-*/
+    $size = sizeof($items)/4;
+    for ($i = 0; $i <= intval($size) ; $i++)
+    {    
+        echo '<div class="row">';
+         if ($i == intval($size))
+            $count = sizeof($items)%4 + 4*$i;
+         else 
+            $count = ($i+1)*4;
+         for ($j = $i*4 ; $j < $count ; $j++)
+         {
+            echo '<div class="item"><div class="product-card"><a href="items.php?item=' .$items[$j]["id"]. '"><img src="' .$items[$j]["image"]. '" alt="Item Image" ></a></div>';
+            echo '<div class="product-info">';
+            echo '<h5>' .$items[$j]["title"]. '</h5>';
+            echo '<span>' .$items[$j]["desc"]. '</span><br>';
+            echo '<span>' .$items[$j]["date"]. '</span><br>';
+            if ( $items[$j]["price"] == 0 )
+            {
+                echo '<span>On Donation</span>';
+            }
+            else 
+            {
+                echo '<span>' .$items[$j]["price"]. '</span>';
+            }
+            
+            echo '<form method="POST" action="delete.php">';
+            echo '<button id="remove" name="delete" value=' .$items[$i]["id"]. '>Remove Item</button>';
+            echo '</form>';
+            echo '</div></div>';
+         }
+            
+            echo '</div>';
+     }
 ?>
