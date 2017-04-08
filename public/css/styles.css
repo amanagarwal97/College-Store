@@ -28,13 +28,14 @@ a:active {
 	color: red;
 }
 
-.store:hover {
+.store:hover, .post:hover , .account:hover , .dashboard:hover {
     text-decoration : none;
-    background-color : black;
-    padding : 10px 10px 10px 10px ;
+    color : #F3A847;
 }
 
-.store, .post, .account, .dashboard {
+
+
+.store, .post, .account , .dashboard {
 	font-family: 'Molengo', sans-serif;
 	position: absolute;
 	top: 17px;
@@ -48,17 +49,17 @@ a:active {
 
 .post {
 	color: white;
-	right: 110px;
+	right: 120px;
 }
 
 .account {
 	color: white;
-	right: 10px;
+	right: 15px;
 }
 
 .dashboard {
 	color: white;
-	right: 345px;
+	right: 350px;
 }
 
 .category {
@@ -112,6 +113,7 @@ h1 {
 }
 
 input.sex, input.sell {
+    font-family : 'Molengo', sans-serif ;
 	display: inline-block;
 	width: 25px;
 	height: 20px;
@@ -149,7 +151,7 @@ h3 a {
 .store-in {
 	width: 400px;
 	display: inline-block;
-	margin-left: 300px;
+	margin-left: 350px;
 	text-align: left;
 	margin-top: -32px;
 	height: 55px;
@@ -161,6 +163,7 @@ h3 a {
 
 .product-search select {
 	display: inline-block;
+	margin-left : 0px;
 	margin-top: 100px;
 	height: 55px;
 	font-family: 'Molengo', sans-serif;
@@ -240,7 +243,7 @@ h3 a {
     background-color: #fff;
     border: 1px solid #ccc;
     margin-top: 1px;
-    margin-left: 300px;
+    margin-left: 350px;
     max-height: 150px;
     overflow-y: auto;
     padding: 6px 12px;
@@ -394,4 +397,26 @@ h5 {
 	font-size: 20px;
 	font-family: 'Roboto', sans-serif;
 	color: white;
+}
+
+.name-heading {
+    margin-top : 100px;
+    font-family: 'Signika Negative', sans-serif;
+}
+
+.message-heading {
+    margin-top : 100px;
+    font-family: 'Signika Negative', sans-serif;
+}
+
+.message-text {
+    margin-top : 50px;
+    margin-left : 70px;
+    font-family: 'Roboto', sans-serif;
+    font-size : 20px;
+
+}
+
+span {
+    font-family : 'Molengo' , sans-serif;
 }

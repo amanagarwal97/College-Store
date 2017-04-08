@@ -20,7 +20,12 @@
             apologise('Invalid Price');
         else if (preg_match('/[.]/',$_POST["price"]) || $_POST["price"] == 0)
             apologise('Please enter a valid price');
-        
+        else if (strlen($_POST["title"]) < 4)
+            apologise('Min. title length is 4 characters');
+        else if (strlen($_POST["description"]) > 200 )
+            apologise('Description length exceeded');
+        else if (strlen($_POST["contact"]) < 4)
+            apologise('Min. contact length is 4 characters');        
         $img_path = '';
         if (file_exists($_FILES["image"]["tmp_name"]) || is_uploaded_file($_FILES["image"]["tmp_name"]))
         {
@@ -70,10 +75,12 @@
         
         if (postad_query($details))
         {
-            render ('postad_success.php',["title" => "Ad posted successfully"]);
+            render ('postad_status.php',["title" => "Post Ad : Success" ,"status" => "Success"]);
         }
         else
-            apologise('Unable to Post your Ad. Please Try Again. ');
+        {
+            render ('postad_status.php' , ["title" => "Post Ad : Failed" , "status" => "Fail"]);
+        }
 
     }
     

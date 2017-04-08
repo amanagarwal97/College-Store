@@ -24,6 +24,10 @@
   
 <?php 
     
+    if (isset($message))
+    {
+        echo '<p class="message-text">' .$message. '</p>';
+    }
     $size = sizeof($items)/4;
     //Store to have image,title,price,college,category,date and a view item field
     for ($i = 0; $i <= intval($size) ; $i++)

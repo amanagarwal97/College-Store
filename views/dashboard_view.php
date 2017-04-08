@@ -1,10 +1,14 @@
 <div>
-<h1 color="black" style="margin-top : 100px;">
+<h1 class="name-heading">
     Welcome , <?php echo $_SESSION["name"] ; ?> </h1>
     </div>
 
 <?php 
     
+    if (isset($message))
+    {
+        echo '<p class="message-text">' .$message. '</p>';
+    }
     //dashboard should have image, title , description , date , price and a remove item field
     $size = sizeof($items)/4;
     for ($i = 0; $i <= intval($size) ; $i++)

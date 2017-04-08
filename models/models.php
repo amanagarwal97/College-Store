@@ -120,7 +120,12 @@
         
         $item_list = [];
         
-        if (isset($_GET["category"]))
+        if (isset($_GET["sid"]))
+        {
+            $query = 'SELECT * FROM items WHERE uid=' .$_GET["sid"];
+        }
+        
+        else if (isset($_GET["category"]))
         {   
             $query = 'SELECT * FROM items WHERE category=' .$_GET["category"];
         }
@@ -200,6 +205,7 @@
     function user_item_list()
     {
         require('connect.php');
+        $item_data = [];
         $query = 'SELECT * FROM items WHERE uid=' . $_SESSION["id"];
         if ($rows = mysqli_query($con,$query))
         {
@@ -215,9 +221,8 @@
                 ];
                 
              }
-             
-             return $item_data;
         }
+       return $item_data;
     }
     
     
@@ -250,12 +255,18 @@
         
         $item = [];
         
-        $query = 'SELECT * FROM items WHERE id=' .$id;
+        $query = 'SELECT * FROM items,categories WHERE items.category=categories.id AND items.id=' .$id;
         
         if ($rows = mysqli_query($con,$query))
         {
             $row = mysqli_fetch_assoc($rows);
+            if ($row["price"] == 0)
+            {
+                $row["price"] = 'On Donation';
+            }
             $item = [
+                "uid" => $row["uid"],
+                "category" => $row["name"],
                 "title" => $row["title"],
                 "desc" => $row["description"],
                 "image" => $row["image"],
@@ -264,6 +275,7 @@
                 "date" => $row["date"]
                 ];     
         }
+       
         
         return $item;
         
@@ -276,11 +288,16 @@
         $query = 'DELETE FROM items WHERE id=' .$id ;
         if (mysqli_query($con,$query))
         {
-            echo 'Successfully removed item from list';
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
-        
-        
+    
+    
+    
         
         
         
