@@ -13,19 +13,19 @@
     if ($_SERVER["REQUEST_METHOD"] == 'POST')
     {
         if (empty($_POST["title"]) || empty($_POST["desc"]) || empty($_POST["contact"]) || (!isset($_POST["choice"])))
-            echo "Please fill all details";
+            echo "Please fill all details.";
         else if ($_POST["category"] == 0)
-            apologise('Select a valid category');
+            apologise('Select a valid category.');
         else if ($_POST["choice"] == 0 && isset($_POST["price"]))
-            apologise('Invalid Price');
+            apologise('Invalid Price.');
         else if (preg_match('/[.]/',$_POST["price"]) || $_POST["price"] == 0)
-            apologise('Please enter a valid price');
+            apologise('Please enter a valid price.');
         else if (strlen($_POST["title"]) < 4)
-            apologise('Min. title length is 4 characters');
+            apologise('Min. title length is 4 characters.');
         else if (strlen($_POST["description"]) > 200 )
-            apologise('Description length exceeded');
+            apologise('Description length exceeded.');
         else if (strlen($_POST["contact"]) < 4)
-            apologise('Min. contact length is 4 characters');        
+            apologise('Min. contact length is 4 characters.');        
         $img_path = '';
         if (file_exists($_FILES["image"]["tmp_name"]) || is_uploaded_file($_FILES["image"]["tmp_name"]))
         {

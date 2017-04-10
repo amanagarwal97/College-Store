@@ -10,7 +10,7 @@
     if (isset($_GET["sid"]))
     {   
         $message = 'This seller has put only '. sizeof($items) . ' items on sale.';
-        render("store_view.php" , ["title" => "Store : Seller Items " , "message" => $message , "items" => $items , "categories" => $categories, "colleges" => $colleges ] );
+        render("store_uview.php" , ["title" => "Store : Seller Items " , "message" => $message , "items" => $items , "categories" => $categories, "colleges" => $colleges ] );
     }
     else
     {

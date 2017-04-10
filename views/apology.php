@@ -1,4 +1,3 @@
-<h2 class="message-heading">Sorry!</h2>
-<?php 
-    print ('<p class="message-text">' .$message. '</p>');
+<?php
+    echo '<h1 class="message-heading">Sorry! '.$message.'</h1>';
 ?>

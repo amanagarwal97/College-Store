@@ -31,7 +31,7 @@
             }
             else
             {
-                echo 'Incorrect e-mail or password';
+                render ('login_status.php',["title" => "Sign In Failed"]);
             }
         }
     }
