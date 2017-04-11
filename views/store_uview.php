@@ -1,20 +1,11 @@
-<div>
-<h1 class="name-heading">
-    Welcome , <?php echo $_SESSION["name"] ; ?> </h1>
-    </div>
-
 <?php 
     
     if (isset($message))
     {
         echo '<p class="message-text">' .$message. '</p>';
     }
-    else
-    {
-        echo '<p class="message-text">You have ' .sizeof($items). ' items for Sale.';
-    }
-    //dashboard should have image, title , description , date , price and a remove item field
     $size = sizeof($items)/4;
+    //Store to have image,title,price,college,category,date and a view item field
     for ($i = 0; $i <= intval($size) ; $i++)
     {    
         echo '<div class="row">';
@@ -35,10 +26,6 @@
             {
                 echo '<span>&#8377;' .$items[$j]["price"]. '</span>';
             }
-            
-            echo '<form method="POST" action="delete.php">';
-            echo '<button id="remove" name="delete" value=' .$items[$i]["id"]. '>Remove Item</button>';
-            echo '</form>';
             echo '</div></div>';
          }
             

@@ -301,20 +301,21 @@ main h2 {
 }
 
 .product {
-	margin-top: 70px;
+	margin-top: 120px;
 }
 main .price {
 	font-size: 28px;
 	vertical-align: sub;
 	font-weight: bold;
 	color: white;
+	font-family: 'Roboto', sans-serif;
 }
 
 .catego {
 	color: white;
 }
 
-.descriptionp {
+.descriptionp, .seller, .date {
     font-size: 24px;
     margin-top: 24px;
     display: -webkit-flex;
@@ -322,7 +323,7 @@ main .price {
     display: flex;
 }
 
-.descriptionp .descriptionh {
+.descriptionp .descriptionh, .seller .sellerh, .date .dateh {
     font-weight: 500;
     width: 150px;
     padding-right: 10px;
@@ -330,34 +331,14 @@ main .price {
     float: left;
 }
 
-.descriptionp .descriptionn {
+.descriptionp .descriptionn, .seller .sellern, .date .daten, .seller .sellero {
     font-weight: 500;
-    color: black;
     position: relative;
     display: inline;
 }
 
-.seller {
-    font-size: 24px;
-    margin-top: 24px;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-}
-
-.seller .sellerh {
-    font-weight: 500;
-    width: 150px;
-    padding-right: 10px;
-    color: white;
-    float: left;
-}
-
-.seller .sellern {
-    font-weight: 500;
-    color: darkred;
-    position: relative;
-    display: inline;
+.seller .sellero {
+    left: 150px;
 }
 
 .row {
@@ -410,11 +391,11 @@ h5 {
 }
 
 .message-text {
-    margin-top : 50px;
-    margin-left : 70px;
-    font-family: 'Roboto', sans-serif;
+    margin-top : 30px;
+    margin-left : 100px;
+    margin-bottom : 0px;
+    font-family: 'Signika Negative', sans-serif;
     font-size : 20px;
-
 }
 
 span {

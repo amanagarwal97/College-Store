@@ -95,6 +95,15 @@ $(function() {
             }
         });
     }
+    
+    $('.sell').click(function(){
+        
+        var value = $('input[name=choice]:checked').val();
+        if (value == 0)
+        {   
+            $('#price').prop('disabled','true');
+        }
+    });
 });
 
 function configure() {
@@ -109,6 +118,13 @@ function configure() {
             empty: "no products found yet",
             suggestion: _.template("<p><%- title %></p>")
         }
+    });
+    
+    $("#js-product").on("typeahead:selected", function(eventObject, suggestion, name) {
+    
+        eventObject.preventDefault();
+        window.location.href = 'items.php?item=' + suggestion.id;
+        console.log(suggestion.id);
     });
 }
 

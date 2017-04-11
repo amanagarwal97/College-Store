@@ -96,7 +96,7 @@
     function category_list()
     {
         require('connect.php');
-        $query = 'SELECT * FROM categories';
+        $query = 'SELECT * FROM categories ORDER BY id';
         if ($rows = mysqli_query($con,$query))
         {
             while ($row = mysqli_fetch_assoc($rows))
@@ -225,6 +225,9 @@
        return $item_data;
     }
     
+    /*
+     * Model for searching product with typeahead
+     */
     
     function search_product()
     {
@@ -239,15 +242,18 @@
             while ($row = mysqli_fetch_assoc($rows))
             {
                 $products_list[] = [
-                    "title" => $row["title"],
-                    "price" => $row["price"]
+                    "id" => $row["id"],
+                    "title" => $row["title"]
                   ];
             }
         }
         
         return $products_list;
      }
-        
+     
+    /*
+     * Model to get info of a particular item
+     */   
 
     function get_item($id)
     {
@@ -260,10 +266,6 @@
         if ($rows = mysqli_query($con,$query))
         {
             $row = mysqli_fetch_assoc($rows);
-            if ($row["price"] == 0)
-            {
-                $row["price"] = 'On Donation';
-            }
             $item = [
                 "uid" => $row["uid"],
                 "category" => $row["name"],
@@ -281,6 +283,9 @@
         
     }
     
+    /*
+     * Model to remove item from users items
+     */
         
     function remove_item($id)
     {
