@@ -7,7 +7,7 @@
     // requirements
     require("helpers.php");
     
-    session_save_path('~/workspace/');
+    session_save_path('../');
     
     //enable sessions
     session_start();
