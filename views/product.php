@@ -9,6 +9,6 @@
        echo '<div class="descriptionp"><div class="descriptionh"><span><span>Description</span></span></div><div>';
        echo '<div id="descrip" class="descriptionn"><span>' .$item["desc"]. '</span><br>';
        echo '<div class="seller"><div class="sellerh"><span><span>Seller</span></span></div><div>';
-       echo '<div id="sellerName" class="sellern"><a href="store.php?sid=' .$item["uid"]. '"><span>Other Items</span></a></div></div></div></main>';
+       echo '<div id="sellerName" class="sellern"><a href="index.php?sid=' .$item["uid"]. '"><span>Other Items</span></a></div></div></div></main>';
        echo '</div>';
 ?>
