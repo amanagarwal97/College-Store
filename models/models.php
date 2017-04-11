@@ -20,7 +20,7 @@
             {   
                 $_SESSION["id"] = $row["id"];
                 $_SESSION["cid"] = $row["college"];
-                $_SESSION["name"] = $row["fname"];
+                $_SESSION["name"] = $row["name"];
                 return true;
             }
             else
@@ -114,48 +114,55 @@
      * Model for getting list of items in store
      */
     
-    function store_list_query($offset)
+    function store_list_query()
     {
         require('connect.php');
         
-        if (isset($_GET["category"]))
+        $item_list = [];
+        
+        if (isset($_GET["sid"]))
+        {
+            $query = 'SELECT * FROM items WHERE uid=' .$_GET["sid"];
+        }
+        
+        else if (isset($_GET["category"]))
         {   
-            $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. 'LIMIT 10 OFFSET '. $offset;
+            $query = 'SELECT * FROM items WHERE category=' .$_GET["category"];
         }
         
         else if (isset($_GET["product"]))
         {
-            $query = 'SELECT * FROM items WHERE title LIKE "%' .$_GET["product"]. '%"' . 'LIMIT 10 OFFSET '. $offset;
+            $query = 'SELECT * FROM items WHERE title LIKE "%' .$_GET["product"]. '%"';
         }
         
         else if (isset($_GET["cid"]))
         {
-            $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. 'LIMIT 10 OFFSET '. $offset;
+            $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"];
         }
         
         else if (isset($_GET["cid"]) && isset($_GET["category"]))
         {
-            $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. ' AND ' .'category=' .$_GET["category"]. 'LIMIT 10 OFFSET '. $offset;
+            $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. ' AND ' .'category=' .$_GET["category"];
         }
         
         else if (isset($_GET["cid"]) && isset($_GET["product"]))
         {
-            $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"' . 'LIMIT 10 OFFSET'. $offset;
+            $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"';
         }
         
         else if (isset($_GET["category"]) && isset($_GET["product"]))
         {
-            $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"' . 'LIMIT 10 OFFSET'. $offset;
+            $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"';
         }
         
         else if (isset($_GET["category"]) && isset($_GET["cid"]) && isset($_GET["product"]))
         {
-            $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. ' AND ' .'cid=' .$_GET["cid"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"' . 'LIMIT 10 OFFSET'. $offset;
+            $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. ' AND ' .'cid=' .$_GET["cid"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"';
         }
         
         else
         {
-            $query = 'SELECT * FROM items LIMIT 10 OFFSET '. $offset;
+            $query = 'SELECT * FROM items';
         }
         
         if ($rows = mysqli_query($con,$query))
@@ -182,9 +189,13 @@
                 ]; 
             }
             
-            return $item_list;
+        }
+        else
+        {
+            $item_list = [];
         }
         
+        return $item_list;
     }
     
     /*
@@ -194,6 +205,7 @@
     function user_item_list()
     {
         require('connect.php');
+        $item_data = [];
         $query = 'SELECT * FROM items WHERE uid=' . $_SESSION["id"];
         if ($rows = mysqli_query($con,$query))
         {
@@ -209,9 +221,8 @@
                 ];
                 
              }
-             
-             return $item_data;
         }
+       return $item_data;
     }
     
     
@@ -244,12 +255,18 @@
         
         $item = [];
         
-        $query = 'SELECT * FROM items WHERE id=' .$id;
+        $query = 'SELECT * FROM items,categories WHERE items.category=categories.id AND items.id=' .$id;
         
         if ($rows = mysqli_query($con,$query))
         {
             $row = mysqli_fetch_assoc($rows);
+            if ($row["price"] == 0)
+            {
+                $row["price"] = 'On Donation';
+            }
             $item = [
+                "uid" => $row["uid"],
+                "category" => $row["name"],
                 "title" => $row["title"],
                 "desc" => $row["description"],
                 "image" => $row["image"],
@@ -258,6 +275,7 @@
                 "date" => $row["date"]
                 ];     
         }
+       
         
         return $item;
         
@@ -270,11 +288,16 @@
         $query = 'DELETE FROM items WHERE id=' .$id ;
         if (mysqli_query($con,$query))
         {
-            echo 'Successfully removed item from list';
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
-        
-        
+    
+    
+    
         
         
         

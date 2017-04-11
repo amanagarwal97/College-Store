@@ -9,7 +9,6 @@
  */
  
 $(function() {
-    getitem();
     if ($(".signin-form").length > 0){
         $("#email").on('input', function() {
             var email = $("#email").val();
@@ -108,7 +107,7 @@ function configure() {
         source: search,
         templates: {
             empty: "no products found yet",
-            suggestion: _.template("<p><%- title %> , <%- price %></p>")
+            suggestion: _.template("<p><%- title %></p>")
         }
     });
 }
@@ -138,14 +137,3 @@ function namecheck(name) {
     return result;
 }
 
-function getitem() {
-    $.ajax ({
-       url : 'index.php?offset=0',
-       method : "GET",
-       success : function()
-       {
-        console.log('done');
-       }
-       
-    });
-}

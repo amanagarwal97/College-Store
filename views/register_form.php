@@ -5,9 +5,8 @@
         <input autofocus type="Email" name="email" placeholder="E-mail Address" id="email" required>
         <span id="namecheck">Invalid Name</span>
         <input type="text" placeholder="First Name" name="fname" id="fname" required>
-        <select name="cid">
-            <option value='0' selected disabled>Select College</option>
-            <option value=0>All</option>
+        <select name="cid" required>
+            <option value='' selected disabled>Select College</option>
             <?php
                 for ($i=0 ; $i<sizeof($colleges) ; $i++)
                 {
@@ -15,9 +14,9 @@
                 }
             ?>
         </select>
-        <input type="Password" name="pwd" placeholder="Password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required>
+        <input type="Password" name="pwd" placeholder="Password" id="password" required>
         <input type="Password" name="rpwd" placeholder="Re-type Password" id="re_password" required>
-        <input type="radio" name="gender" value="0" class="sex"><span class="male">M </span><input type="radio" name="gender" value="1" class="sex"><span class="female">F</span><br><br>
+        <input type="radio" name="gender" value="0" class="sex" required><span class="male">M </span><input type="radio" name="gender" value="1" class="sex"><span class="female">F</span><br><br>
         <button type="submit" name="submit" id="js-button">Sign Up</button>   
     </form>
 </div>
