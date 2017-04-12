@@ -2,12 +2,14 @@
     
     //item view should have image, title , description , date , price and a contact info field 
        echo '<div class="product"><div class="image">';
-       echo '<img src="' .$item["image"]. '" alt="product-image"><h2><span>On Sell</span></h2></div><main>';
+       echo '<img src="' .$item["image"]. '" alt="product-image"><h2><span>';
+       if ($item["price"] == 0)
+        echo 'On Donation</span></h2></div><main>';
+       else
+        echo 'On Sell</span></h2></div><main>';
        echo '<span class="catego">Category - ' .$item["category"]. '</span>';
        echo '<h2>' .$item["title"]. '</h2>';
-       if ($item["price"] == 0)
-        echo '<span class="price">On Donation</span>';
-       else
+       if (!$item["price"] == 0)
         echo '<span class="price">&#8377;'.$item["price"]. '</span>';
        echo '<div class="descriptionp"><div class="descriptionh"><span><span>Description</span></span></div><div>';
        echo '<div id="descrip" class="descriptionn"><span>' .$item["desc"]. '</span></div></div></div>';
