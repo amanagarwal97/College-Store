@@ -7,6 +7,7 @@
     {
         require('connect.php');
         extract($values);
+        $email = mysqli_real_escape_string($con,$email);
         $query = 'SELECT * FROM users WHERE email="' .$email. '"';
         $result=mysqli_query($con,$query);
         if (empty($result))
@@ -37,6 +38,9 @@
     {
         require('connect.php');
         extract($values);
+        $email = mysqli_real_escape_string($con,$email);
+        $fname = mysqli_real_escape_string($con,$fname);
+        
         $query = 'INSERT INTO users(name,email,password,college,gender) VALUES';
         $password_hash = password_hash($password,PASSWORD_DEFAULT);
         $query = $query . '("' . $fname . '","' . $email . '","' . $password_hash . '",' . $cid . ',"' . $gender . '")';
@@ -57,6 +61,9 @@
     {
         require('connect.php');
         extract($values);
+        $title = mysqli_real_escape_string($con,$title);
+        $desc = mysqli_real_escape_string($con,$desc);
+        $contact = mysqli_real_escape_string($con,$contact);
         $query = 'INSERT INTO items(uid,cid,category,title,description,contact,itype,price,date,image) 
                   VALUES(' .$_SESSION["id"]. ',' .$_SESSION["cid"]. ',' .$category. ',"' .$title. '","' .$desc. '","' .$contact. '",' .$choice. ',' .$price. ',"' .date_format(date_create(),'jS F,Y'). '","' .$image. '")';
         if (mysqli_query($con,$query))
@@ -256,7 +263,7 @@
         
         $item = [];
         
-        $query = 'SELECT * FROM items,categories WHERE items.category=categories.id AND items.id=' .$id;
+        $query = 'SELECT uid,name,title,description,image,price,contact,date,cname FROM items,categories,colleges WHERE items.category=categories.id AND items.cid = colleges.cid AND items.id=' .$id ;
         
         if ($rows = mysqli_query($con,$query))
         {
@@ -269,7 +276,8 @@
                 "image" => $row["image"],
                 "price" => $row["price"],
                 "contact" => $row["contact"],
-                "date" => $row["date"]
+                "date" => $row["date"],
+                "cname" => $row["cname"]
                 ];     
         }
        
