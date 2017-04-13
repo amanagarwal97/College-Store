@@ -125,32 +125,32 @@
             $query = 'SELECT * FROM items WHERE uid=' .$_GET["sid"];
         }
         
-        else if (isset($_GET["category"]))
+        else if (isset($_GET["category"]) && !isset($_GET["prdouct"]) && !isset($_GET["cid"]))
         {   
             $query = 'SELECT * FROM items WHERE category=' .$_GET["category"];
         }
         
-        else if (isset($_GET["product"]))
+        else if (!isset($_GET["category"]) && isset($_GET["prdouct"]) && !isset($_GET["cid"]))
         {
             $query = 'SELECT * FROM items WHERE title LIKE "%' .$_GET["product"]. '%"';
         }
         
-        else if (isset($_GET["cid"]))
+        else if (!isset($_GET["category"]) && !isset($_GET["prdouct"]) && isset($_GET["cid"]))
         {
             $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"];
         }
         
-        else if (isset($_GET["cid"]) && isset($_GET["category"]))
+        else if (isset($_GET["cid"]) && isset($_GET["category"]) && !isset($_GET["product"]))
         {
             $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. ' AND ' .'category=' .$_GET["category"];
         }
         
-        else if (isset($_GET["cid"]) && isset($_GET["product"]))
+        else if (isset($_GET["cid"]) && isset($_GET["product"]) && !isset($_GET["category"]))
         {
             $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"';
         }
         
-        else if (isset($_GET["category"]) && isset($_GET["product"]))
+        else if (isset($_GET["category"]) && isset($_GET["product"]) && !isset($_GET["cid"]))
         {
             $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"';
         }
@@ -182,10 +182,7 @@
                     "id" => $row["id"],
                     "image" => $row["image"],
                     "title" => $row["title"],
-                    "cname" => $college_row["cname"],
-                    "date" => $row["date"],
                     "price" => $row["price"],
-                    "category" => $category_row["name"]
                 ]; 
             }
             
@@ -215,8 +212,6 @@
                     "id" => $row["id"],
                     "image" => $row["image"],
                     "title" => $row["title"],
-                    "desc" => $row["description"],
-                    "date" => $row["date"],
                     "price" => $row["price"]
                 ];
                 
