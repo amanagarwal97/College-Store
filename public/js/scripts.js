@@ -110,6 +110,13 @@ function configure() {
             suggestion: _.template("<p><%- title %></p>")
         }
     });
+    
+    $("#js-product").on("typeahead:selected", function(eventObject, suggestion, name) {
+    
+        eventObject.preventDefault();
+        window.location.href = 'items.php?item=' + suggestion.id;
+        console.log(suggestion.id);
+    });
 }
 
 function search(query, cb) {

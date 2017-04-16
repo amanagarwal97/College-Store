@@ -5,6 +5,6 @@
     require('../models/models.php');
     
     $item = get_item($_GET["item"]);
-    render ('product.php',["title" => "Item" , "item" => $item ]);
+    render ('product.php',["title" => "View Item" , "item" => $item ]);
     
 ?> 

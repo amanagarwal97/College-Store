@@ -7,7 +7,7 @@
     // requirements
     require("helpers.php");
     
-    session_save_path('../');
+    session_save_path('../session_data');
     
     //enable sessions
     session_start();

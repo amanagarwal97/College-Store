@@ -240,7 +240,7 @@
             {
                 $products_list[] = [
                     "title" => $row["title"],
-                    "price" => $row["price"]
+                    "id" => $row["id"]
                   ];
             }
         }
