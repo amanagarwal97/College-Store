@@ -9,7 +9,11 @@
     {
         echo '<p class="message-text">' .$message. '</p>';
     }
-    //dashboard should have image, title , description , date , price and a remove item field
+    else
+    {
+        echo '<p class="message-text">You have ' .sizeof($items). ' items for Sale.';
+    }
+
     $size = sizeof($items)/4;
     for ($i = 0; $i <= intval($size) ; $i++)
     {    

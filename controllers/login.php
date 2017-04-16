@@ -20,7 +20,7 @@
             apologise("Please enter the password");
         }
         else
-        {
+        {   
             $details = [
                 "email" => $_POST["email"] ,
                 "password" => $_POST["password"]

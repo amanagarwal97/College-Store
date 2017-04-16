@@ -3,5 +3,5 @@
     
     logout();
     
-    redirect('/')
+    redirect('/');
 ?>

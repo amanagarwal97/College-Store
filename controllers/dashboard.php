@@ -12,7 +12,7 @@
     }
     
     else
-    {
+    {   
         render("dashboard_view.php",["title" => "Dashboard" ,"items" => $list]);
     }
 ?>

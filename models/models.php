@@ -7,6 +7,7 @@
     {
         require('connect.php');
         extract($values);
+        $email = mysqli_real_escape_string($con,$email);
         $query = 'SELECT * FROM users WHERE email="' .$email. '"';
         $result=mysqli_query($con,$query);
         if (empty($result))
@@ -37,6 +38,9 @@
     {
         require('connect.php');
         extract($values);
+        $email = mysqli_real_escape_string($con,$email);
+        $fname = mysqli_real_escape_string($con,$fname);
+        
         $query = 'INSERT INTO users(name,email,password,college,gender) VALUES';
         $password_hash = password_hash($password,PASSWORD_DEFAULT);
         $query = $query . '("' . $fname . '","' . $email . '","' . $password_hash . '",' . $cid . ',"' . $gender . '")';
@@ -57,6 +61,9 @@
     {
         require('connect.php');
         extract($values);
+        $title = mysqli_real_escape_string($con,$title);
+        $desc = mysqli_real_escape_string($con,$desc);
+        $contact = mysqli_real_escape_string($con,$contact);
         $query = 'INSERT INTO items(uid,cid,category,title,description,contact,itype,price,date,image) 
                   VALUES(' .$_SESSION["id"]. ',' .$_SESSION["cid"]. ',' .$category. ',"' .$title. '","' .$desc. '","' .$contact. '",' .$choice. ',' .$price. ',"' .date_format(date_create(),'jS F,Y'). '","' .$image. '")';
         if (mysqli_query($con,$query))
@@ -96,7 +103,7 @@
     function category_list()
     {
         require('connect.php');
-        $query = 'SELECT * FROM categories';
+        $query = 'SELECT * FROM categories ORDER BY id';
         if ($rows = mysqli_query($con,$query))
         {
             while ($row = mysqli_fetch_assoc($rows))
@@ -125,32 +132,32 @@
             $query = 'SELECT * FROM items WHERE uid=' .$_GET["sid"];
         }
         
-        else if (isset($_GET["category"]))
+        else if (isset($_GET["category"]) && !isset($_GET["prdouct"]) && !isset($_GET["cid"]))
         {   
             $query = 'SELECT * FROM items WHERE category=' .$_GET["category"];
         }
         
-        else if (isset($_GET["product"]))
+        else if (!isset($_GET["category"]) && isset($_GET["prdouct"]) && !isset($_GET["cid"]))
         {
             $query = 'SELECT * FROM items WHERE title LIKE "%' .$_GET["product"]. '%"';
         }
         
-        else if (isset($_GET["cid"]))
+        else if (!isset($_GET["category"]) && !isset($_GET["prdouct"]) && isset($_GET["cid"]))
         {
             $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"];
         }
         
-        else if (isset($_GET["cid"]) && isset($_GET["category"]))
+        else if (isset($_GET["cid"]) && isset($_GET["category"]) && !isset($_GET["product"]))
         {
             $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. ' AND ' .'category=' .$_GET["category"];
         }
         
-        else if (isset($_GET["cid"]) && isset($_GET["product"]))
+        else if (isset($_GET["cid"]) && isset($_GET["product"]) && !isset($_GET["category"]))
         {
             $query = 'SELECT * FROM items WHERE cid=' .$_GET["cid"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"';
         }
         
-        else if (isset($_GET["category"]) && isset($_GET["product"]))
+        else if (isset($_GET["category"]) && isset($_GET["product"]) && !isset($_GET["cid"]))
         {
             $query = 'SELECT * FROM items WHERE category=' .$_GET["category"]. ' AND ' .'title LIKE "%'. $_GET["product"]. '%"';
         }
@@ -182,10 +189,7 @@
                     "id" => $row["id"],
                     "image" => $row["image"],
                     "title" => $row["title"],
-                    "cname" => $college_row["cname"],
-                    "date" => $row["date"],
                     "price" => $row["price"],
-                    "category" => $category_row["name"]
                 ]; 
             }
             
@@ -215,8 +219,6 @@
                     "id" => $row["id"],
                     "image" => $row["image"],
                     "title" => $row["title"],
-                    "desc" => $row["description"],
-                    "date" => $row["date"],
                     "price" => $row["price"]
                 ];
                 
@@ -225,6 +227,9 @@
        return $item_data;
     }
     
+    /*
+     * Model for searching product with typeahead
+     */
     
     function search_product()
     {
@@ -239,15 +244,18 @@
             while ($row = mysqli_fetch_assoc($rows))
             {
                 $products_list[] = [
-                    "title" => $row["title"],
-                    "id" => $row["id"]
+                    "id" => $row["id"],
+                    "title" => $row["title"]
                   ];
             }
         }
         
         return $products_list;
      }
-        
+     
+    /*
+     * Model to get info of a particular item
+     */   
 
     function get_item($id)
     {
@@ -255,15 +263,11 @@
         
         $item = [];
         
-        $query = 'SELECT * FROM items,categories WHERE items.category=categories.id AND items.id=' .$id;
+        $query = 'SELECT uid,name,title,description,image,price,contact,date,cname FROM items,categories,colleges WHERE items.category=categories.id AND items.cid = colleges.cid AND items.id=' .$id ;
         
         if ($rows = mysqli_query($con,$query))
         {
             $row = mysqli_fetch_assoc($rows);
-            if ($row["price"] == 0)
-            {
-                $row["price"] = 'On Donation';
-            }
             $item = [
                 "uid" => $row["uid"],
                 "category" => $row["name"],
@@ -272,7 +276,8 @@
                 "image" => $row["image"],
                 "price" => $row["price"],
                 "contact" => $row["contact"],
-                "date" => $row["date"]
+                "date" => $row["date"],
+                "cname" => $row["cname"]
                 ];     
         }
        
@@ -281,6 +286,9 @@
         
     }
     
+    /*
+     * Model to remove item from users items
+     */
         
     function remove_item($id)
     {

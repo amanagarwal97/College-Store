@@ -95,6 +95,15 @@ $(function() {
             }
         });
     }
+    
+    $('.sell').click(function(){
+        
+        var value = $('input[name=choice]:checked').val();
+        if (value == 0)
+        {   
+            $('#price').prop('disabled','true');
+        }
+    });
 });
 
 function configure() {

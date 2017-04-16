@@ -12,15 +12,15 @@
     if ($_SERVER["REQUEST_METHOD"] == 'POST')
     {
         if (empty($_POST["email"]) || empty($_POST["fname"]) || empty($_POST["pwd"]) || empty($_POST["rpwd"]))
-            echo 'Please fill all details';
+            apologise('Please Fill all the details');
         else if (!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL))
-            echo 'Invalid Email address';
+            apologise('Invalid Email address');
         else if ($_POST["cid"] == 0)
-            echo 'No college selected';
+            apologise('No college selected');
         else if (!isset($_POST["gender"]))
-            echo "No gender selected" ;
+            apologise("No gender selected") ;
         else if ($_POST["pwd"] != $_POST["rpwd"])
-            echo "passwords do not match";
+            apologise("Passwords do not match");
         else
         {   
             $details = [
