@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `items`(
     `contact` varchar(100) NOT NULL,
     `itype` int(1) NOT NULL,
     `price` int(10) NOT NULL,
-    `date` datetime NOT NULL,
+    `date` varchar(255) NOT NULL,
     `image` varchar(255),
     PRIMARY KEY (`id`),
     FOREIGN KEY (`uid`) REFERENCES users(`id`),

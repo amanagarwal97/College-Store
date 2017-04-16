@@ -293,6 +293,20 @@
     function remove_item($id)
     {
         require('connect.php');
+        
+        //Remove image of the item
+        $img_query = 'SELECT image FROM items WHERE id=' .$id;
+        $img_rows = mysqli_query($con,$img_query);
+        $img_row = mysqli_fetch_assoc($img_rows);
+        
+        $img_path = $img_row["image"];
+        if ($img_path != '/img/default.png')
+        {
+            $img_path = '../public/' . $img_path;
+            unlink($img_path);
+                
+        }
+        
         $query = 'DELETE FROM items WHERE id=' .$id ;
         if (mysqli_query($con,$query))
         {

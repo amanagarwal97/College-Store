@@ -16,9 +16,8 @@
             //inserting each row to database
             if(mysqli_query($con,$query))
             {
-                print ('Row inserted');
+                echo 'College Inserted' . PHP_EOL;
             }
-            
         }
         
         fclose($handle);

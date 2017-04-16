@@ -1,6 +1,6 @@
 <div class="middle">
     <form action="register.php" method="post" class="signup-form">
-        <h1>Sign Up</h1>
+        <h1>Register</h1>
         <span id="emailcheck">Invalid Email</span>
         <input autofocus type="Email" name="email" placeholder="E-mail Address" id="email" required>
         <span id="namecheck">Invalid Name</span>
@@ -16,7 +16,7 @@
         </select>
         <input type="Password" name="pwd" placeholder="Password" id="password" required>
         <input type="Password" name="rpwd" placeholder="Re-type Password" id="re_password" required>
-        <input type="radio" name="gender" value="0" class="sex" required><span class="male">M </span><input type="radio" name="gender" value="1" class="sex"><span class="female">F</span><br><br>
+        <input type="radio" name="gender" value="0" class="sex" required><span class="male">M </span><input type="radio" name="gender" value="1" class="sex"><span class="female">F</span><br>
         <button type="submit" name="submit" id="js-button">Sign Up</button>   
     </form>
 </div>

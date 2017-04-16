@@ -18,7 +18,7 @@
             apologise('Select a valid category.');
         else if ($_POST["choice"] == 0 && !empty($_POST["price"]))
             apologise('Invalid Price');
-        else if ($_POST["choice"] == 1 && (preg_match('/[.]/',$_POST["price"]) || $_POST["price"] == 0))
+        else if ($_POST["choice"] == 1 && (preg_match('/[\D]/',$_POST["price"]) || $_POST["price"] == 0))
             apologise('Please enter a valid price.');
         else if (strlen($_POST["title"]) < 4)
             apologise('Min. title length is 4 characters.');
