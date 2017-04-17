@@ -15,6 +15,8 @@
     }
 
     $size = sizeof($items)/4;
+    
+    //to showonly 4 products per row
     for ($i = 0; $i <= intval($size) ; $i++)
     {    
         echo '<div class="row">';

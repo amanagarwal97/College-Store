@@ -4,7 +4,9 @@
     require('config.php');
     require('../models/models.php');
     
+    //array containing list of items present in store
     $items = store_list_query();
+    
     $categories = category_list();
     $colleges = college_list();
     if (isset($_GET["sid"]))

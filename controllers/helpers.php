@@ -68,7 +68,9 @@
     }
      
      
-    
+    /**
+     * Checks the uploaded image for size and format
+     */
     function check_file($_file_name,$imagetype)
     {
         $uploaded = true;
@@ -104,6 +106,10 @@
         return $uploaded;
 
     }
+    
+    /**
+     * Gives each image a unique name to store in the server
+     */
     
     function img_name() 
     {

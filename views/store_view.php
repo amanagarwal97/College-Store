@@ -28,8 +28,10 @@
     {
         echo '<p class="message-text">' .$message. '</p>';
     }
+    
     $size = sizeof($items)/4;
     
+    //To show only 4 products per row 
     for ($i = 0; $i <= intval($size) ; $i++)
     {    
         echo '<div class="row">';

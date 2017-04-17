@@ -4,16 +4,18 @@
     require('config.php');
     require_once('../models/models.php');
     
+    //if user requests page via GET render postad form
     if ($_SERVER["REQUEST_METHOD"] == 'GET')
     {
         $categories = category_list();
         render('postad_form.php' , ["title" => "PostAd" , "categories" => $categories]);
     }
     
+    //if user requests page via POST i.e. submits the form then check the info
     if ($_SERVER["REQUEST_METHOD"] == 'POST')
     {   
         if (empty($_POST["title"]) || empty($_POST["desc"]) || empty($_POST["contact"]) || (!isset($_POST["choice"])))
-            echo "Please fill all details.";
+            apologise('Please fill all details.');
         else if ($_POST["category"] == 0)
             apologise('Select a valid category.');
         else if ($_POST["choice"] == 0 && !empty($_POST["price"]))
@@ -26,7 +28,10 @@
             apologise('Description length exceeded.');
         else if (strlen($_POST["contact"]) < 4)
             apologise('Min. contact length is 4 characters.');        
+        
         $img_path = '';
+        
+        //Uploading the image if any
         if (file_exists($_FILES["image"]["tmp_name"]) || is_uploaded_file($_FILES["image"]["tmp_name"]))
         {
             $file_name = basename($_FILES["image"]["name"]);
@@ -58,6 +63,7 @@
             $img_path = "/img/default.png";
         }
         
+        //if choice is Donate price must be zero
         if ($_POST["choice"] == 0)
         {
             $price = 0;
@@ -77,6 +83,7 @@
             "image" => $img_path
           ];
         
+        //passing all the details to the model to store details
         if (postad_query($details))
         {
             render ('postad_status.php',["title" => "Post Ad : Success" ,"status" => "Success"]);
