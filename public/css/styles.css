@@ -1,10 +1,18 @@
+/**
+ * styles.css
+ *
+ * Project_2
+ *
+ * Global CSS.
+ */
+
 * {
 	box-sizing: border-box;
 }
 
 body {
 	margin: 0px;
-	background-color: #CEE3F8;
+	background-color: #4598E9;
 }
 
 nav {
@@ -124,6 +132,10 @@ input.sex, input.sell {
 	font-size: 30px;
 }
 
+span.donate {
+	font-size: 25px;
+}
+
 .signin-form button, .signup-form button, .postad-form button {
 	font-size: 20px;
 	background-color: grey;
@@ -153,7 +165,7 @@ h3 a {
 	display: inline-block;
 	margin-left: 350px;
 	text-align: left;
-	margin-top: -35px;
+	margin-top: -32px;
 	height: 55px;
 	font-family: 'Molengo', sans-serif;
 	border: 2px grey solid;
@@ -185,7 +197,7 @@ h3 a {
 	border-radius: 5px;
 	height: 55px;
 	width: 56px;
-	margin-bottom: -20px;
+	margin-bottom: -23px;
 	
 }
 
@@ -400,4 +412,23 @@ h5 {
 
 span {
     font-family : 'Molengo' , sans-serif;
+}
+
+.delete {
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: lightgrey;
+    color: black;
+    border: 2px solid #e7e7e7;
+}
+
+.delete:hover {
+	background-color: red;
 }

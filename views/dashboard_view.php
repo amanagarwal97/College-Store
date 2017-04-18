@@ -1,7 +1,6 @@
 <div>
-<h1 class="name-heading">
-    Welcome , <?php echo $_SESSION["name"] ; ?> </h1>
-    </div>
+    <h1 class="name-heading">Welcome , <?php echo $_SESSION["name"] ; ?></h1>
+</div>
 
 <?php 
     
@@ -16,16 +15,16 @@
 
     $size = sizeof($items)/4;
     
-    //to showonly 4 products per row
+    //to show only 4 products per row
     for ($i = 0; $i <= intval($size) ; $i++)
     {    
         echo '<div class="row">';
-         if ($i == intval($size))
+        if ($i == intval($size))
             $count = sizeof($items)%4 + 4*$i;
-         else 
+        else 
             $count = ($i+1)*4;
-         for ($j = $i*4 ; $j < $count ; $j++)
-         {
+        for ($j = $i*4 ; $j < $count ; $j++)
+        {
             echo '<div class="item"><div class="product-card"><a href="items.php?item=' .$items[$j]["id"]. '"><img src="' .$items[$j]["image"]. '" alt="Item Image" ></a></div>';
             echo '<div class="product-info">';
             echo '<h5>' .$items[$j]["title"]. '</h5>';
@@ -39,11 +38,10 @@
             }
             
             echo '<form method="POST" action="delete.php">';
-            echo '<button id="remove" name="delete" value=' .$items[$i]["id"]. '>Remove Item</button>';
+            echo '<button id="remove" name="delete" class="delete" value=' .$items[$i]["id"]. '>Remove Item</button>';
             echo '</form>';
             echo '</div></div>';
-         }
-            
-            echo '</div>';
-     }
+        }
+        echo '</div>';
+    }
 ?>
