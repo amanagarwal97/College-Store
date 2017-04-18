@@ -41,8 +41,6 @@ a:active {
     color : #F3A847;
 }
 
-
-
 .store, .post, .account , .dashboard {
 	font-family: 'Molengo', sans-serif;
 	position: absolute;
@@ -315,6 +313,7 @@ main h2 {
 .product {
 	margin-top: 120px;
 }
+
 main .price {
 	font-size: 28px;
 	vertical-align: sub;
