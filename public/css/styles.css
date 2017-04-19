@@ -36,14 +36,14 @@ a:active {
 	color: red;
 }
 
-.store:hover, .post:hover , .account:hover , .dashboard:hover {
+.store:hover, .post:hover , .account:hover , .dashboard:hover , .accounto:hover {
     text-decoration : none;
     color : #F3A847;
 }
 
 
 
-.store, .post, .account , .dashboard {
+.store, .post, .account , .dashboard , .accounto {
 	font-family: 'Molengo', sans-serif;
 	position: absolute;
 	top: 17px;
@@ -51,6 +51,7 @@ a:active {
 }
 
 .store {
+	font-family: 'Macondo', cursive !important ;
 	color: white;
 	left: 30px;
 }
@@ -62,12 +63,17 @@ a:active {
 
 .account {
 	color: white;
-	right: 25px;
+	right: 23px;
 }
 
 .dashboard {
 	color: white;
 	right: 350px;
+}
+
+.accounto {
+	color : white;
+	right : 18px;
 }
 
 .category {
@@ -165,7 +171,7 @@ h3 a {
 	display: inline-block;
 	margin-left: 350px;
 	text-align: left;
-	margin-top: -32px;
+	margin-top: -35px;
 	height: 55px;
 	font-family: 'Molengo', sans-serif;
 	border: 2px grey solid;
@@ -197,7 +203,7 @@ h3 a {
 	border-radius: 5px;
 	height: 55px;
 	width: 56px;
-	margin-bottom: -23px;
+	margin-bottom: -20px;
 	
 }
 
@@ -320,7 +326,7 @@ main .price {
 	vertical-align: sub;
 	font-weight: bold;
 	color: white;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Molengo', sans-serif;
 }
 
 .catego {
@@ -383,12 +389,12 @@ main .price {
 h5 {
 	margin: 0;
 	font-size: 20px;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Molengo', sans-serif;
 }
 
 .product-info span {
 	font-size: 20px;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Molengo', sans-serif;
 	color: white;
 }
 

@@ -8,10 +8,9 @@
             <?php endif ?>
         
         <meta charset="utf-8">
-	    <meta name="description" content="MyCollegeStore">
-	    <link href="https://fonts.googleapis.com/css?family=Molengo|Signika+Negative" rel="stylesheet">
+	    <meta name="description" content="CollegeStore">
+	    <link href="https://fonts.googleapis.com/css?family=Molengo|Signika+Negative|Macondo" rel="stylesheet">
 	    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	    <link href="https://fonts.googleapis.com/css?family=Molengo" rel="stylesheet"> 
 	    <link rel="stylesheet" type="text/css" href="css/styles.css">
 	    <script type="text/javascript" src="js/jquery.min.js"></script>
 	    <script type="text/javascript" src="js/typeahead.jquery.min.js"></script>
@@ -29,7 +28,7 @@
                 else
                 {   
                     echo '<a href="dashboard.php" class="dashboard">DASHBOARD</a>';
-                    echo '<a href="logout.php" class="account">SIGN OUT</a>';
+                    echo '<a href="logout.php" class="accounto">SIGN OUT</a>';
                 }
             ?>
 	    </nav>
