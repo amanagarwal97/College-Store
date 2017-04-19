@@ -29,17 +29,17 @@
         echo '<p class="message-text">' .$message. '</p>';
     }
     
-    $size = sizeof($items)/4;
+    $size = sizeof($items)/3;
     
-    //To show only 4 products per row 
+    //To show only 3 products per row 
     for ($i = 0; $i <= intval($size) ; $i++)
     {    
         echo '<div class="row">';
         if ($i == intval($size))
-            $count = sizeof($items)%4 + 4*$i;
+            $count = sizeof($items)%3 + 3*$i;
         else 
-            $count = ($i+1)*4;
-        for ($j = $i*4 ; $j < $count ; $j++)
+            $count = ($i+1)*3;
+        for ($j = $i*3 ; $j < $count ; $j++)
         {
             echo '<div class="item"><div class="product-card"><a href="items.php?item=' .$items[$j]["id"]. '"><img src="' .$items[$j]["image"]. '" alt="Item Image" ></a></div>';
             echo '<div class="product-info">';

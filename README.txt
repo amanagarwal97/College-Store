@@ -25,7 +25,7 @@ Explanation : When a user requests a page say index.php the requests goes to pub
               10) logout.php : Logs out user.
               
 Instructions : 
-              1) Start the web server : apache50 start Project_2/public .
+              1) Start the web server by typing the following command in workspace: apache50 start Project_2/public .
               2) Start MySQL server : mysql50 start .
               3) Copy the SQL code in Project_2.sql to the SQL tab in phpmyadmin.
               4) Go to Project_2/bin in command mode and type ./import to insert colleges in table.
