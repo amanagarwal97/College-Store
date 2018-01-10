@@ -1,5 +1,5 @@
 # Connection File
-bin/connect.php
+models/connect.php
 
 # Session Data
 session_data
